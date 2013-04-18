@@ -1,0 +1,7830 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>mgx format</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20070817;16104556">
+	<META NAME="CHANGED" CONTENT="20070817;16164539">
+	<META NAME="DESCRIPTION" CONTENT="mgx format">
+	<META NAME="KEYWORDS" CONTENT="AOC,mgx format">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { color: #000066 }
+		P { color: #000066 }
+		H2 { background: #547d94; border: 1.00pt solid #547d94; padding: 0.05cm; color: #ffffff }
+		H3 { background: #990000; border: 1.00pt solid #993333; padding: 0.05cm; color: #ffffff }
+		A:link { color: #990000 }
+		STRONG { color: #000033 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="de-DE" TEXT="#000066" LINK="#990000" BGCOLOR="#f2f2e6" DIR="LTR">
+<H2>mgx format</H2>
+<P>The mgx file consists of a compressed header and a body data.</P>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR>
+		<TD WIDTH=155 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Data Type</STRONG></P>
+		</TD>
+		<TD WIDTH=200 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Byte</STRONG></P>
+		</TD>
+		<TD BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Description</STRONG></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>bool</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>1 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 or 1</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>4 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 or 1</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>1 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>2 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>4 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>4 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>double</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>8 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>variable</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>length(2 byte) + length byte</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD BGCOLOR="#dfedf0">
+			<P>POINT</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>8 byte</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>(int x, int y)</P>
+		</TD>
+	</TR>
+</TABLE>
+<P>The hex data's byte order in mgx format is little endian.</P>
+<H3>mgx file</H3>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#99cc99">
+		<TD COLSPAN=3 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Data Type</STRONG></P>
+		</TD>
+		<TD WIDTH=200 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Name</STRONG></P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>byte</STRONG></P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>Description</STRONG></P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD COLSPAN=3 BGCOLOR="#d7ecdf">
+			<P>Header</P>
+		</TD>
+		<TD BGCOLOR="#d7ecdf">
+			<P>header</P>
+		</TD>
+		<TD BGCOLOR="#d7ecdf">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#d7ecdf">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=3 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>header_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Length of Header structure(header_len + next_pos +
+			compressed_data)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>next_pos</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Address of next Header structure. set to 0x00 if next header
+			does not exist.<BR>(This data does not exist in .mgl format)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#ffff00">
+			<P>compressed_data[header_len - 8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>it contains player info, map setting, scenario data, and etc.
+			need to uncompress. (zlib deflate compress)<BR>(compressed_data
+			structure is the same as .gax file format)</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#dfedf0">
+		<TD COLSPAN=3 BGCOLOR="#d7ecdf">
+			<P>Body</P>
+		</TD>
+		<TD BGCOLOR="#d7ecdf">
+			<P>body</P>
+		</TD>
+		<TD BGCOLOR="#d7ecdf">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#d7ecdf">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=3 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Operation</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>operation[?]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Stream data. The data end is end of file.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Type of ope_data (1, 2 or 4)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=113 BGCOLOR="#dfedf0">
+			<P>union Ope_data</P>
+		</TD>
+		<TD BGCOLOR="#ffff00">
+			<P>ope_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<H3>compressed_data</H3>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#99cc99">
+		<TD COLSPAN=5 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Data Type</STRONG></P>
+		</TD>
+		<TD WIDTH=200 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>Name</STRONG></P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#99cc99">
+			<P ALIGN=CENTER><STRONG>byte</STRONG></P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>Description</STRONG></P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>version[8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD>
+			<P>&quot;VER 9.4&quot;:AOC, &quot;VER 9.3&quot;:AOK, &quot;TRL
+			9.3&quot;:AOK Trial version</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>unknown_const[4]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&quot;F6 28 3C 41&quot;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD>
+			<P>include_ai</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>0x00:No AI data is included, 0x01:AI data is included</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>AI_info</P>
+		</TD>
+		<TD>
+			<P>ai_info[include_ai]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=41 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>String_table</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>string_table</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>All AI's string resouces is in it.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=7 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_string</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of strings</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Resource_string</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>resource_string[num_string]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>string_length</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>str[string_length]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3[6]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;78 00 64 00 08 00&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>AI_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_data[8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Compiled AI script data.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=18 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>seq</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Set to -1 if invalid AI data.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>max_rules</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Max defrules. always 1000.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_rule</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Number of defrules in AI script</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Rule</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>rule[num_rule]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>defrule data</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=12 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[12]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>12</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_fact</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of fact</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_fact_action</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of fact + action</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=7 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=71 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>01:action, 02:not/and/or, 03:condition</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>param1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>param2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>param3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>param4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[104]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>104</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Timers</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timers[8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>set value for each timer. not elapsed time. (for 8 player)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=10 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer7</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer9</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>shared_goal[256]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1024</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero[1024]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4096</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>game_speed1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>100:slow, 150:midium, 200:fast</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>zero</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>game_speed2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>100:slow, 150:midium, 200:fast</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD>
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>unknown4[17]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>17</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD>
+			<P>rec_player_ref</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD>
+			<P>player number of this record game's owner</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>num_player</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD>
+			<P>number of players + 1</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>zero2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>negative[12]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>12</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>unknown5[14]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>14</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>unknown6[8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>32</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>map_size_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>map_size_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>num_unknown_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>Unknown_data</P>
+		</TD>
+		<TD>
+			<P>unknown_data[num_unknown_data]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=6 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>negative[255]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>255</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero[255]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1020</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero2[map_size_x][map_size_y]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>usually 41</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[num_float]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD>
+			<P>unknown7[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>Map</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>map[map_size_x][map_size_y]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD>
+			<P>Map data</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>terrain_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>elevation</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown8[120]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>120</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>map_size_x2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>map_size_y2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>unknown9[map_size_x][map_size_y]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD>
+			<P>zero3[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown_const2[7]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>7</P>
+		</TD>
+		<TD>
+			<P>&quot;98 9E 00 00 02 0B&quot;</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR>
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>Player_info</P>
+		</TD>
+		<TD WIDTH=200 BGCOLOR="#f7f3e8">
+			<P>player_info[num_player]</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>index 0 is GAIA data</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=207 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>diplomacy_from[num_player]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>index 0 is diplomacy from GAIA (0:ally or self, 3:enemy)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>diplomacy_to[9]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>36</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>index 0 is diplomacy to GAIA<BR>(0:GAIA, 1:self, 2:ally,
+			3:neutral, 4:enemy, -1:invalid player) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero[5]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_name</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player0's name is &quot;GAIA&quot;.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_header_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>198. number of civ_header float data</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Civ_header</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civ_header</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=28 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>food</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>food amount on hand</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>wood</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>wood amount on hand</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>stone</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>stone amount on hand</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>gold</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>gold amoutn on hand</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>headroom</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>(house capacity - population). negative value when Nomad map.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data7</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data9</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>population</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data12_31[20]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>80</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>max_pop</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>210 if Gothic and Impeiral age start.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data33</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data34</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data35</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>farm_food_amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>depend on starting age and players civ.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civilian_pop</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>villager, fish boat or etc.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data38</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data39</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>military_pop</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>military population</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data41_90[50]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>200</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>food_bonus</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civ bonus amount. For example, -200 if the player is Chinese
+			Civ.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>wood_bonus</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civ bonus amount. For example, 50 if the player is Persian Civ.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>stone_bonus</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civ bonus amount.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>gold_bonus</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civ bonus amount.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>data95_197[103]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>412</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x0b</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5[9]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>9</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civilization</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown9[3]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_color</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00:blue, 0x01:red, 0x02:green, etc.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown10[4183]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4183</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown11</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_research</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>always 460</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Research_stat</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>research_stat[num_research]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>status</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[12]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>12</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>long_unknown_data[?]</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P ALIGN=RIGHT>?</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>learn_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>set to 0 if learn_file is not used. Only used in scenario game?</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>learn_file[learn_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>For example, &quot;learn\xxxxx.scxUsername.1&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>unknown12[?]</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P ALIGN=RIGHT>?</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown13[80]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>80</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_filename_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_filename[ai_filename_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;RandomGame&quot; : standard AI,
+			<BR>&quot;C:\Docume~1\user_name\Loacal~1\temp\temp_Airules1.tmp&quot;:
+			AI in scenario</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>unknown14[?]</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P ALIGN=RIGHT>?</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int 
+			</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>always 866 (number of unit type)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>obj_exist_flg[num_object]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00000000 or 0x00000001</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown15[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>master_object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Master_Object[var]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>all unit data without obj_exist_flg = 0 is included</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=73 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>10, 20, 30, 70 or 80</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown_id[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_class</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2[6]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>union Object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=67 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[24]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>24</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type30</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type30</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[32]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>32</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type60</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type60</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=17 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>HP</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>LOS</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>size_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>size_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2[7]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>7</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>move_rate</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>search_range</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6[10]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown7</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown8[5]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>neg</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown9[11]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>11</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type70</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type70</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=32 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>HP</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hit point</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>LOS</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>line of sight</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>size_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>size_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>move_rate</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>search_range</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown7</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>Attack</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>attack[attack_length]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>Armour</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>armour[armour_length]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>attack_range</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>accuracy_pct</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>accuracy percent of range unit</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>projectile</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>projectile object ID</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown9</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_01_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0=food, 1=wood, 2=stone, 3=gold</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_01_amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_01_used</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_02_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0=food, 1=wood, 2=stone, 3=gold</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_02_amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_02_used</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_03_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0=food, 1=wood, 2=stone, 3=gold</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_03_amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>cost_03_used</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>training_time</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown11</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown12[3]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type80</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type80</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=11 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>HP</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>LOS</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[4]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>16</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>move_rate</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>search_range</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5[48]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>48</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown7[5]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>map_size_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>map_size_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown16[6]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>los[map_size_x][map_size_y]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>line of sight area. set to 1 or more if the location is in
+			sight.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>constant</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>usually 0x00000005</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown17</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown18[8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>32</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Unknown_Data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown_Data[num]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown19</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>usually 0x000B</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown20</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown21[3]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Exist_Object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>exist_object[?]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=53 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>10, 20, 30, 70 or 80</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>owner</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player number</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>union Object_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>depend on object_type</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=50 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type10</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Gaia object data? only exist if object_type=10</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=14 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=71 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>negative</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hitpoint</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object location x</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object location y</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown7[4]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>resource_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x02:stone, 0x03:gold</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>resouce amount</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown8[14]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>14</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type20</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type20</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>only exist if object_type=20</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=11 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>negative</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hitpoint</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6[67]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>67</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type70</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type70</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Unit data. only exist if object_type=70</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=10 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>negative</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hitpoint</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6[435 or 673]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>435<BR>or <BR>673 
+			</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>673byte if this object is converted sheep</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Type80</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type80</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Building data. only exist if object_type=80</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=11 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>negative</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hitpoint</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pos_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown6[547]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>547</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown22[4]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;00 00 00 0B&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown23</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>usually 0x00000040</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown24</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>usually 0x00000080</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>unknown25[?]</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P ALIGN=RIGHT>?</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=5 BGCOLOR="#dfedf0">
+			<P>Long_unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>long_unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>unknown[?]</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P ALIGN=RIGHT>?</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Achievement</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>achievement[num_player]</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=37 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown1[13]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>13</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>total_point</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2[26]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>26</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>war_point</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3[34]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>34</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_kill</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_killed</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_kill2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown7[60]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_destroyed_bldg</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown8[444]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>444</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>total_food</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown9[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>total_wood</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown10[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>total_stone</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown11[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>total_gold</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown12[444]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>444</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>max_villager</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown13[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>max_villager2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown14[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>relic_castle</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown16[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>relic_castle2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown17[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>wonder</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown18[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>relic_gold</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown19[124]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>124</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>researched_tech</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown20[28]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>explored_percentage</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>neg</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Scenario_header</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>scenario_header</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=12 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>next_unit_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>next unit ID</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>constant</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_names[16][256]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4096</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_name in scenario</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>string_id[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_name string_id in language_x1.dll.<BR>if this is not -1,
+			this string is used instead of &quot;player_names&quot; above.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Player_data1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_data1[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>players data in scenario. default value is set if this rec is
+			not scenario game.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=4 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=113 BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>active</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00:invalid player, 0x01:vaild player</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>human</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>human or computer(AI)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>civilization</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>constant</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00000004</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[5]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>elapsed_time</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>orginial_filename</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>elapsed time from game start</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Instruction</P>
+		</TD>
+		<TD>
+			<P>instruction</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=23 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>instruct_string_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>instructions string_id in language_x1.dll.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hints_string_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hints string_id in language_x1.dll.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>victory_string_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>victory string_id in language_x1.dll.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>defeat_string_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>defeat string_id in language_x1.dll.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>history_string_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>history string_id in language_x1.dll.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>scouts_string_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>scouts string_id in language_x1.dll.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>instructions</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 length string data if no instructions</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>hints</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 length string data if no hints</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>victory</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 length string data if no victory</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>defeat</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 length string data if no defeat</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>history</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 length string data if no history</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>scouts</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0 length string data if no scouts</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pregame_cinem</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pregame cinem file name. 0 length string data if no pregame
+			cinem</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>victory_cinem</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>victory cinem file name. 0 length string data if no victory
+			cinem</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>defeat_cinem</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>defeat cinem file name. 0 length string data if no defeat cinem</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>background_image</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>file name of background image in pregame instructions</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>bitmap_included</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00:no bitmap, 0x01:included bitmap</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>bitmap_size_x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>bitmap_size_y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>whocares</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>BITMAPINFOHEADER</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>bmp_info[bitmap_included]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>40</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>only exist if bitmap_included = 1</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>bitmap[]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>only exist if bitmap_included = 1<BR>depend on bitmap size and
+			BITMAPINFOHEADER data</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>nulls[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00000000</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Scenario_player</P>
+		</TD>
+		<TD>
+			<P>scenario_player</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>player data in scenario. it contains 16 players info</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=12 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>String</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_name[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>standard computer AI name is &quot;RandomGame&quot;.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>AI_file</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_file[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>AI data included in scenario file.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=3 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>nulls[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>file_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>file[file_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>AI script text data</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>separator</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;9D FF FF FF&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Resource</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>resource[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=5 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>gold</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>gold amount at scenario game start</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>wood</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>wood amount at scenario game start</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>food</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>food amount at scenario game start</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>stone</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>stone amount at scenario game start</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>nulls[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Victory</P>
+		</TD>
+		<TD>
+			<P>victory</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>victory condition</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=11 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>separator</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;9D FF FF FF&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>conquest</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>condition for custom, (0x00:not conquest, 0x01:conquest)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>relics</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>condition for custom. number of relics</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>explored</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>condition for custom. percentage of explored map</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>all</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00:any, 0x01:all</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>mode</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0:normal, 1:conquest, 2:score, 3:time, 4:custom</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>score</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>time</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Long_unknown2</P>
+		</TD>
+		<TD>
+			<P>long_unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[256]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1024</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>nulls[2880]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>11520</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Disables</P>
+		</TD>
+		<TD>
+			<P>disables</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>it contains 16 players info</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=10 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>separator</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;9D FF FF FF&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>nulls[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_techs[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of disable technologies for 16 players</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disabled_techs[16][30]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1920</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disable technologies id for 16 players. Max disable
+			technologies are 30.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_units[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of disable units for 16 players</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disabled_units[16][30]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1920</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disable units id for 16 players. Max disable units are 30.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_buildings[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of disable buildings for 16 players</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disabled_bldgs[16][20]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1280</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disable buildings id for 16 players. Max disable buildings are
+			20.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>nulls2[3]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>12</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>starting_age[16]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>64</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>starting age in scenario for 16 players. (-1:default, 0:dark
+			age, 1:feudal age, 2:castle age, 3:imperial age, 4:post imperial
+			age)</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Game_setting</P>
+		</TD>
+		<TD>
+			<P>game_setting</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=15 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>separator</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&quot;9D FF FF FF&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>negative[2]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>-1</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>map_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>difficulty</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>difficulty level (0:hardest, 1:hard, 2:moderate, 3:easy,
+			4:easiest)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Player_info</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_info[9]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>index 0 is GAIA player</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=4 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_data_index</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player data index.<BR>player data index become the same number
+			if two players select same player number.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>human</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00:invalid player, 0x02:human, 0x04:computer</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>name_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>playername[name_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player name</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero[9]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>36</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>long_unknown_data[?]</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P ALIGN=RIGHT>?</P>
+		</TD>
+		<TD BGCOLOR="#999999">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>constant1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>5500</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>double</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>constant2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>1.6 (hex &quot;9A 99 99 99 99 99 F9 3F&quot;)</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Trigger_info</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>trigger_info</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>trigger data in scenario</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=62 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_trigger</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of triggers. 0 is set if not scenario game.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Trigger</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>trigger[num_trigger]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=58 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>BOOL</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>enabled</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>bool</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>looping</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>bool</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>objective</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>desc_order</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zeros</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>desc_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>description[desc_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>name_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>name[name_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_effect</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Effect</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>effect[num_effect]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=27 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=92 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>effect type</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>check</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_goal</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>resource</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>diplomacy</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_selected_object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>location_unit</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_source</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_target</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>technology</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>text_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>disp_time</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>trig_index</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>POINT</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>location</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>POINT</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>area_ll</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>POINT</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>area_ur</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_group</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>object_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>instruction_panel</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>text_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>text[text_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>sound_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>sound_file[sound_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_ids[num_selected_object]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>effect_order[num_effect]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_condition</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Condition</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>condition[num_condition]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=16 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>condition type</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>check</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>amount</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>resource</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_object</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_location</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>technology</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>timer</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>POINT</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>area_ll</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>POINT</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>area_ur</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_group</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>ai_signal</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>condition_order[num_condition]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>list_order[num_trigger]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=4 BGCOLOR="#dfedf0">
+			<P>Other_data</P>
+		</TD>
+		<TD>
+			<P>other_data</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=9 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>team[8]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>8</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>(0x01:no team, 0x02:team1, 0x03:team2, 0x04:team3,
+			0x05:team4)<BR>array index is player number.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown[13]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>13</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>pop_limit</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>population limit in game setting.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>game_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00:Random map, 0x01:Regiced, 0x02:Death match, 0x03:Senario,
+			0x04:campaign, 0x05:King of the Hill, 0x06:Wonder race,
+			0x07:Defend Wonder, 0x08:Turbo Random map</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>lock_diplomacy</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x01:cannot change diplomacy</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_chat</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of pregame chat. Max num_chat is 50.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 BGCOLOR="#dfedf0">
+			<P>Chat_msg</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>chat_msg[num_chat]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Pre-game chat messages</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>chat_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>!! 0 length chat exists.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>chat[chat_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>format is &quot;@#&quot;+ player number + chat message.<BR>!!
+			chat string data is not always null termination.</P>
+		</TD>
+	</TR>
+</TABLE>
+<H3>ope_data</H3>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Sync</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>sync</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>only exist if type=2.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=6 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>time</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>elapse time from prev sync data(milli second). <BR>this number
+			get bigger if it is laggy</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x00000000 or 0x00000003</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2[7]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>28</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>only exist if unknown = 0x00000000</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>flaot</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>x</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>players view position x</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>float</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>y</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>players view position y</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_index</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Game_start</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>game_start</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>only exist if type=4</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=6 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>command</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x000001F4</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown3</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown5</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Chat</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>chat</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>only exist if type=4</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=3 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>command</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0xFFFFFFFF</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>chat_len</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>chat[chat_len]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>format is &quot;@#&quot;+ player number + chat message.</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Command</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>command</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>only exist if type=1</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=3 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>length</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>Command_Data</P>
+		</TD>
+		<TD BGCOLOR="#ffff00">
+			<P>command_data[length]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>var</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unknown1[4]</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<H3>Command_Data</H3>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Command_Data</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>command_data</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=4 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>command_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x0B (resign)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_index</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_index can be the same as other player if two players
+			select same player number (coop).</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>player_number</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>char</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>zero</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>1</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=100% CELLPADDING=2 CELLSPACING=0>
+	<TR BGCOLOR="#f7f3e8">
+		<TD COLSPAN=2 BGCOLOR="#dfedf0">
+			<P>Command_Data</P>
+		</TD>
+		<TD WIDTH=200>
+			<P>command_data</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>-</P>
+		</TD>
+		<TD>
+			<P>&nbsp;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=4 WIDTH=20 BGCOLOR="#f7f3e8">
+			<P>&nbsp;</P>
+		</TD>
+		<TD WIDTH=134 BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>command_type</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>0x77(train unit)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>int</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>building_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>4</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>building's object ID</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>unit_type_id</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>Type of unit to train.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD BGCOLOR="#dfedf0">
+			<P>short</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>num_unit</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P ALIGN=RIGHT>2</P>
+		</TD>
+		<TD BGCOLOR="#f7f3e8">
+			<P>number of unit to train. 5 is set when shift+click.</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>Updated 8/17/2007</P>
+</BODY>
+</HTML>

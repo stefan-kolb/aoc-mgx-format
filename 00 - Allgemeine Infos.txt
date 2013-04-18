@@ -1,0 +1,67 @@
+Reveal Map wird nicht mitgespeichert.
+Fehler sind meistens 3 Ints am Ende mehr!!! Was könnte das sein? anderer Player???
+Gegnerstrukturen immer 3 * 4 Bytes länger!!!
+Monch bekehren = attak, heilen attack?
+Player 2 strukturen eventuell mit sync infos oderso machen auf jedenfall keinen sinn bis jetzt
+
+End const = ende der aktion?! als sync zeit...in wieweit macht das sinn? sync davor/danach
+einlesen der datein weil sehr lange dauernd wie bei mp3 tags mit option -> winamp
+
+IDs für Gebäude etc.???
+------------------------------
+Aufsteuigend ohne Lücke? Jedes Gebäude/Unit erhält ID
+Anfangspunkt???
+Besispiel up.mgx
+Killbares auf der map auch id ?! wood food...die infi im header bei irg unknown?! map[x][y]
+
+Anfangszustand:
+-------------------------
+P1:TC		-> 1879
+		-> 1880?
+		-> 1881?
+		-> 1882?
+P2:TC		-> 1883
+		-> 1884?
+		-> 1885?
+		-> 1886?
+P1:Vill		-> 1887
+P1:Vill		-> 1888
+P1:Vill		-> 1889
+P2:Vill		-> 1890
+P2:Vill		-> 1891
+P2:Vill		-> 1892
+
+Häuser:
+-------------------------
+P1:Haus		-> 2071?
+P1:Haus		-> 2072?
+P1:Haus		-> 2073?
+P2:Haus		-> 2074?
+P2:Haus		-> 2075?
+P2:Haus		-> 2076?
+
+Baue Neu:
+-------------------------
+P1:Vill 	-> 2077
+P1:Haus		-> 2078?
+P1:Vill		-> 2079
+P1:Haus		-> 2080?
+P1:Vill		-> 2081
+P1:Haus		-> 2082?
+
+P2:Vill		-> 2086
+P2:Haus		-> 2087?
+P2:Vill		-> 2088
+P2:Haus		-> 2089
+
+P1:Vill		-> 2090
+P1:Haus		-> 2091
+P2:Vill		-> 2092
+P2:Haus		-> 2093
+
+P1:Schaf	-> 
+P1:Scout	-> 
+P2:
+Scout		->
+Schaf		->
+Schaf

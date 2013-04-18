@@ -1,0 +1,15 @@
+ändern der spielgeschwindigkeit?
+felder einsähen?
+diplomatie
+tribute
+
+
+------------------------------ unsicher
+reparieren (attack)
+heilen/bekehren
+einquartieren/ausquartien/zurück an die arbeit
+townbell läuten/raus
+technologien entwickeln (train??)
+abbrechen von aktionen
+pause(nicht gespeichert)
+entpacken/packen
