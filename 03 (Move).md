@@ -1,9 +1,18 @@
-Aktion: Move
-----------------------------------------------
+Move
+====
+
+int8 => command
+int8 => player_id
+int16 => unknown
+int32 => -1
+int32 => units_selected_count
+float => x_coordinate
+float => y_coordinate
+array[int32] => unit_ids_selected; length => units_selected_count; only_if => units_selected_count != 255
 
 Aufbau:
 ----------------------------------------------
-Länge (Bytes): var Bytes
+Lï¿½nge (Bytes): var Bytes
 ----------------------------------------------
 03 	    -> cmd typ
 01 00 00    -> player id
