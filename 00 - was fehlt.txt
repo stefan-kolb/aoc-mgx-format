@@ -1,15 +1,18 @@
-ändern der spielgeschwindigkeit?
 felder einsähen?
-diplomatie
-tribute
-
-
------------------------------- unsicher
+diplomatie (nicht gespeichert?! oder bei gamespeed = options)
+entpacken (ungarrison)/packen (garrison)
+dequeue units = garrison
+pause(nicht gespeichert!)
+gaia bewegt sich rehe zb? wenn dann auch move
+heilen/bekehren (attack)
 reparieren (attack)
-heilen/bekehren
-einquartieren/ausquartien/zurück an die arbeit
-townbell läuten/raus
-technologien entwickeln (train??)
-abbrechen von aktionen
-pause(nicht gespeichert)
-entpacken/packen
+kapitel speichern => kackt save structure ab maybe kommt dann wieder header oderso
+Spiel speichern
+------------------------------ unsicher
+
+10 = 0x0A
+16 = 0x10 ???? GAIA? AI MOVE oder gegner
+126 = 0x7E ???
+110 = 0x6E ???
+105 = 0x69???
+2 = 0x02?? GAIA?
