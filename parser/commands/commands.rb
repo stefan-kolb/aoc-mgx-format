@@ -23,4 +23,6 @@ class Commands
 	TRAIN = 0x77
 	GATHER = 0x78
 	BACKTOWORK = 0x80
+	WALL = 0x69
+	WAYPOINT = 0x10
 end

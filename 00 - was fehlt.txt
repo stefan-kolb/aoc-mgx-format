@@ -11,8 +11,43 @@ Spiel speichern
 ------------------------------ unsicher
 
 10 = 0x0A
-16 = 0x10 ???? GAIA? AI MOVE oder gegner
-126 = 0x7E ???
-110 = 0x6E ???
-105 = 0x69???
+
+
+126 = 0x7E ??? playerunabhängig? netzwerkmässig sieht aus wie die endkonstanten der jeweiligen commands
+
+00
+00
+00
+BD
+1C
+00
+00
+
+110 = 0x6E ??? playerunabhängig? netzwerkmässig sieht aus wie die endkonstanten der jeweiligen commands
+
+03 , 04
+00 , 00
+00 , 00
+A0 , A0
+21 , 21
+00 , 00
+00 , 00
+B0 , DC
+1B , 1B
+00 , 00
+00 , 00
+1E , C4
+1A , 1B
+00 , 00
+00 , 00
+73 , D8
+1C , 1C
+00 , 00
+00 , 00
+   , 6A
+   , 21
+   , 00
+   , 00
+
+
 2 = 0x02?? GAIA?

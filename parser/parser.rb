@@ -6,6 +6,9 @@ require './commands/commands'
 require 'bindata'
 require 'zlib'
 
+# tempo disable stdout
+module Kernel; def puts(*args) end end
+
 class Header < BinData::Record
 	endian :little
 	
@@ -43,12 +46,22 @@ class Action < BinData::Record
 	string :data, :length => lambda { len + 3 }
 end
 
-io = File.open('rec.mgx')
+class Rem < BinData::Record
+  count_bytes_remaining :remi
+end
+
+count = 1
+
+Dir.glob('recs/*.mgx') do |file|
+  # do work
+
+time = 0
+io = File.open(file)
 head_comp = Header.read(io)
 #uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
 #puts uncompressed_data
 
-until BinData::Record::count_bytes_remaining == 0 do
+until Rem.read(io).remi == 0 do
 	ope = Command.read(io)
 	
 	if ope.type == 4
@@ -61,14 +74,14 @@ until BinData::Record::count_bytes_remaining == 0 do
 			puts "Chat"
 			c = Chat.read(io)
 			puts c.message
-			gets
 		else
 			puts "Unknown 4"
 			puts vier.type
 			gets
 		end
 	elsif ope.type == 2
-		Sync.read(io)
+		t = Sync.read(io)
+		time += t.time
 	elsif ope.type == 1
 		a = Action.read(io)
 		
@@ -78,7 +91,6 @@ until BinData::Record::count_bytes_remaining == 0 do
 		when Commands::MOVE
 			puts "Move"
 		when 	Commands::RESIGN
-			puts Commands::RESIGN
 			puts "Resign"
 		when Commands::STOP
 			puts "Stop"
@@ -110,6 +122,8 @@ until BinData::Record::count_bytes_remaining == 0 do
 			puts "Tech"
 		when Commands::BUILD
 			puts "Build"
+		when Commands::WALL
+			puts "Waller :("
 		when Commands::GAMESPEED
 			puts "Gamespeed"
 		when Commands::FLARE
@@ -122,14 +136,24 @@ until BinData::Record::count_bytes_remaining == 0 do
 			puts "Gather"
 		when Commands::BACKTOWORK
 			puts "Backtowork"
+		when Commands::WAYPOINT
+			puts "Waypoint"
 		else
 			puts "You gave me #{a.cmd} -- I have no idea what to do with that."
-			gets
+			puts (time / 1000 / 60).to_s << "." << (time / 1000 % 60).to_s
+			out = File.new("unknown/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			a.write(out)
+			out.close
+			count += 1
+			#gets
 		end
 	else
-		puts "? error!"
+		puts "? error!" << file.basename
 		gets
 	end
+	
+end
+
 end
 
 # wow its like 100000000 times shorter than the old java version
