@@ -25,4 +25,5 @@ class Commands
 	BACKTOWORK = 0x80
 	WALL = 0x69
 	WAYPOINT = 0x10
+	MULTISAVE = 0x18
 end

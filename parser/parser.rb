@@ -138,6 +138,8 @@ until Rem.read(io).remi == 0 do
 			puts "Backtowork"
 		when Commands::WAYPOINT
 			puts "Waypoint"
+		when Commands::MULTISAVE
+			puts "Multiplayer Save"
 		else
 			puts "You gave me #{a.cmd} -- I have no idea what to do with that."
 			puts (time / 1000 / 60).to_s << "." << (time / 1000 % 60).to_s
