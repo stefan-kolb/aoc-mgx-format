@@ -1,9 +1,12 @@
-Attack
+Attack (0x00)
 ----------------------------------------------
 Description  
-Attack auch gegen Bäume?! Alles wo man was anklickt!(Eat,Repair,bekehren,etc)
+This includes
+* Gathering resources (wood, food, ...)
+* Repairing
+* Converting and healing Units
 
-Aufbau:
+Structure:
 ----------------------------------------------
 Lenght (Bytes): var Bytes
 ----------------------------------------------
