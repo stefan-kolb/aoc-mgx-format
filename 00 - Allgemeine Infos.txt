@@ -1,4 +1,5 @@
 NEED TO VERIFY EVERYTHING BY GENERATING ACTIONS
+TODO Dropped Games
 
 Reveal Map wird nicht mitgespeichert.
 Fehler sind meistens 3 Ints am Ende mehr!!! Was könnte das sein? anderer Player???

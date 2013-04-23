@@ -7,7 +7,7 @@ require 'bindata'
 require 'zlib'
 
 # tempo disable stdout
-module Kernel; def puts(*args) end end
+#module Kernel; def puts(*args) end end
 
 class Header < BinData::Record
 	endian :little
@@ -52,7 +52,7 @@ end
 
 count = 1
 
-Dir.glob('recs/*.mgx') do |file|
+Dir.glob('recs/savegame.mgx') do |file|
   # do work
 
 time = 0

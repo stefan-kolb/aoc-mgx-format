@@ -1,17 +1,15 @@
 felder einsähen?
 diplomatie (nicht gespeichert?! oder bei gamespeed = options)
 entpacken (ungarrison)/packen (garrison)
-dequeue units = garrison
+dequeue units = garrison (wtf?)
 pause(nicht gespeichert!)
-gaia bewegt sich rehe zb? wenn dann auch move
-heilen/bekehren (attack)
+gaia bewegt sich rehe zb? wenn dann auch move?
+heilen (?)/bekehren (attack)
 reparieren (attack)
 kapitel speichern => kackt save structure ab maybe kommt dann wieder header oderso
+multiplayer speichern = 18
 Spiel speichern
 ------------------------------ unsicher
-
-10 = 0x0A
-
 
 126 = 0x7E ??? playerunabhängig? netzwerkmässig sieht aus wie die endkonstanten der jeweiligen commands
 
@@ -48,6 +46,3 @@ B0 , DC
    , 21
    , 00
    , 00
-
-
-2 = 0x02?? GAIA?
