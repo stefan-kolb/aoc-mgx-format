@@ -15,7 +15,7 @@ def Move
 	double :y_coordinate
 	array :unit_id, 
 		:length => :selected_units_count, 
- 		:only_if => :selected_units_count < `0xFF`
+ 		:only_if => :selected_units_count < 0xFF
 end
 ```
 
