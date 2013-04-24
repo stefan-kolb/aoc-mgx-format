@@ -5,15 +5,15 @@ Description
 ## Definition
 
 ```ruby
-def Resign
-  int8 :command 
+def Waypoint
+	int8 :command 
 	int8 :player_id
 	int8 :selected_units_count
 	float :x_coordinate
-  float :y_coordinate
-  array :units, 
-    :length => :selected_units_count, 
-    :onlyif =>:selected_units_count < 0xFF
+  	float :y_coordinate
+  	array :units, 
+    		:length => :selected_units_count, 
+    		:onlyif =>:selected_units_count < 0xFF
 end
 ```
 
