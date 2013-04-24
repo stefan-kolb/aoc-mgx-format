@@ -52,7 +52,7 @@ end
 
 count = 1
 
-Dir.glob('recs/savegame.mgx') do |file|
+Dir.glob('recs/max.mgx') do |file|
   # do work
 
 time = 0
@@ -90,6 +90,9 @@ until Rem.read(io).remi == 0 do
 			puts "Attack"
 		when Commands::MOVE
 			puts "Move"
+			out = File.new("data/move/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			a.write(out)
+			count += 1
 		when 	Commands::RESIGN
 			puts "Resign"
 		when Commands::STOP
