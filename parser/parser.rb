@@ -7,6 +7,7 @@ require './commands/resign'
 require './commands/tribute'
 require './commands/sell'
 require './commands/buy'
+require './commands/attackground'
 
 require 'bindata'
 require 'zlib'
@@ -58,7 +59,7 @@ end
 
 count = 1
 
-Dir.glob('recs/trade.mgx') do |file|
+Dir.glob('recs/attackground.mgx') do |file|
   # do work
 
 time = 0
@@ -112,6 +113,10 @@ until Rem.read(io).remi == 0 do
 			count += 1
 		when Commands::GROUNDATTACK
 			puts "Groundattack"
+			out = File.new("data/attackground/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = AttackGround.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::TRIBUTE
 			puts "Tribute"
 			out = File.new("data/tribute/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")

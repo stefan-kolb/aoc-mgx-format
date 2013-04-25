@@ -1,13 +1,26 @@
-Aktion: BacktoWork
-----------------------------------------------
+# Back To Work
 
-Aufbau:
-----------------------------------------------
-Länge (Bytes): var Bytes
-----------------------------------------------
-80          -> cmd typ
-00 00 00    -> zero*3?
-04 00 00 00 -> gebäude id
-----------------------------------------------
-Bei anderen playern wieder 3 Bytes länger??? y!!
-kein selbe gruppe?
+Description  
+
+## Definition
+
+```ruby
+def BackToWork
+	int8 :command 
+	int24 :zero
+	int32 :obj_id
+end
+```
+
+## Description
+
+*:command*  
+The command identifier for the action attack will always be `0x80`.
+
+## Examples
+
+Standard
+
+>`80` &mdash; command  
+>`00 00 00` &mdash; zero  
+>`04 00 00 00` &mdash; obj_id

@@ -1,14 +1,10 @@
 Aktion: Einquartieren
 ----------------------------------------------
 
-Aufbau:
-----------------------------------------------
-Länge (Bytes): var Bytes
-----------------------------------------------
 75          -> cmd typ
 03 00 00    -> Anzahl units
-04 00 00 00 -> gebäude id
-05 00 00 00 -> ??? wegen ausquartieren später speicher???
+04 00 00 00 -> gebÃ¤ude id
+05 00 00 00 -> ??? wegen ausquartieren spÃ¤ter speicher???
 00 00 80 BF -> x-geb?
 00 00 80 BF -> y-geb?
 FF FF FF FF -> const
@@ -16,7 +12,6 @@ FF FF FF FF -> const
 02 00 00 00 -> ""
 01 00 00 00 -> ""
 ----------------------------------------------
-Bei anderen playern wieder 3 Bytes länger??? y!!
 kein selbe gruppe?
 
 05 00 00 00 

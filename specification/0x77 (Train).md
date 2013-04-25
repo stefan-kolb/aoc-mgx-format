@@ -3,7 +3,7 @@ Aktion: Train
 
 Aufbau:
 ----------------------------------------------
-Länge (Bytes): var Bytes
+LÃ¤nge (Bytes): var Bytes
 ----------------------------------------------
 77          -> cmd typ
 00 00 00    -> zero??
@@ -11,4 +11,4 @@ Länge (Bytes): var Bytes
 53 00       -> unit id
 01 00       -> anzahl
 ----------------------------------------------
-Bei anderen playern wieder 3 Bytes länger??? y!!
+Bei anderen playern wieder 3 Bytes lÃ¤nger??? y!!
