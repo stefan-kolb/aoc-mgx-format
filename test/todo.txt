@@ -1,1 +1,0 @@
-extract structures from large db and test structure then
