@@ -28,8 +28,8 @@ class TestMove < MiniTest::Unit::TestCase
 			struct = Move.read(io)
 			
 			assert_equal(struct.command, 0x03, "Command not 0x03")
-			assert_match(/[1-8]/, struct.player_id.to_s, "Player id not in range") # gaia hat wohl kein move
-			assert_match(/[1-9]|[0-4][0-9]|255/, struct.units_selected_count.to_s, "unit coundt")
+			assert((1..8).member?(struct.player_id), "Player id not in range: " + struct.player_id.to_s) # gaia hat wohl kein move
+			assert_match(/[1-9]|[0-4][0-9]|255/, struct.units_selected_count.to_s, "unit count")
 		end
 	end
 end

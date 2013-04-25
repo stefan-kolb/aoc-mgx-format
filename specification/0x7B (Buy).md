@@ -5,12 +5,13 @@ Description
 ## Definition
 
 ```ruby
-def Move
+def Buy
 	int8 :command
 	int8 :player_id
-	int8 :resource
+	int8 :resource_type
 	int8 :amount
-	int32 :zero
+	int16 :object_id
+	int8 :zero
 end
 ```
 

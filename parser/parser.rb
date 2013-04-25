@@ -2,6 +2,11 @@ require './commands/move'
 require './commands/gamestart'
 require './commands/chat'
 require './commands/commands'
+require './commands/delete'
+require './commands/resign'
+require './commands/tribute'
+require './commands/sell'
+require './commands/buy'
 
 require 'bindata'
 require 'zlib'
@@ -43,7 +48,8 @@ class Action < BinData::Record
   #  move Commands::MOVE
   #end
 	#skip :length => 4
-	string :data, :length => lambda { len + 3 }
+	string :data, :length => lambda { len - 1}
+	skip :length => 4
 end
 
 class Rem < BinData::Record
@@ -52,7 +58,7 @@ end
 
 count = 1
 
-Dir.glob('recs/max.mgx') do |file|
+Dir.glob('recs/trade.mgx') do |file|
   # do work
 
 time = 0
@@ -90,25 +96,42 @@ until Rem.read(io).remi == 0 do
 			puts "Attack"
 		when Commands::MOVE
 			puts "Move"
-			out = File.new("data/move/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
-			a.write(out)
-			count += 1
 		when 	Commands::RESIGN
 			puts "Resign"
+			out = File.new("data/resign/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Resign.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::STOP
 			puts "Stop"
 		when Commands::DELETE
 			puts "Delete"
+			out = File.new("data/delete/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Delete.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::GROUNDATTACK
 			puts "Groundattack"
 		when Commands::TRIBUTE
 			puts "Tribute"
+			out = File.new("data/tribute/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Tribute.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::UNGARRISON
 			puts "UNgarrison"
 		when Commands::SELL
 			puts "Sell"
+			out = File.new("data/sell/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Sell.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::BUY
 			puts "Buy"
+			out = File.new("data/buy/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Buy.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::TOWNBELL
 			puts "Townbell"
 		when Commands::AGGRO

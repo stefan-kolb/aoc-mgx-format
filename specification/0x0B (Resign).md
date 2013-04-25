@@ -2,6 +2,7 @@
 
 Description  
 player id and number nach farbe reihenfolge im multiplayer setup?
+Resign can happen multiple times for same player.Then unknown is 0x01. Dunno what that means.
 
 ## Definition
 
@@ -10,7 +11,7 @@ def Resign
 	int8 :command 
 	int8 :player_id
 	int8 :player_number
-	int8 :zero
+	int8 :unknown
 end
 ```
 
@@ -30,8 +31,8 @@ It may be different from *player_id* when someone is cooping another player. For
 > Player 2 = { player_id: `0x02`, player_number: `0x02` }  
 > Player 3 = { player_id: `0x02`, player_number: `0x03` }  
 
-*:zero*  
-The byte following the *:player_number* should always be unused `0x00`.
+*:unknown*  
+The byte following the *:player_number* should always be `0x00` or `0x01`.
 
 ## Examples
 
