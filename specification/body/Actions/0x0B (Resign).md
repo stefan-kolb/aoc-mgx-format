@@ -2,7 +2,7 @@
 
 Description  
 player id and number nach farbe reihenfolge im multiplayer setup?
-Resign can happen multiple times for same player.Then unknown is 0x01. Dunno what that means.
+Resign can happen multiple times for same player.Then :unknown is 0x01. Dunno what that means.
 
 ## Definition
 

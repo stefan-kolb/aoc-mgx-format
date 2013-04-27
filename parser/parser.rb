@@ -59,7 +59,7 @@ end
 
 count = 1
 
-Dir.glob('recs/attackground.mgx') do |file|
+Dir.glob('recs/*.mgx') do |file|
   # do work
 
 time = 0
@@ -80,7 +80,9 @@ until Rem.read(io).remi == 0 do
 		elsif vier.type == -1
 			puts "Chat"
 			c = Chat.read(io)
-			puts c.message
+			out = File.new("data/chat/#{ope.type}" << "_" << count.to_s << ".dump", "w+")
+			c.write(out)
+			count += 1
 		else
 			puts "Unknown 4"
 			puts vier.type
@@ -159,6 +161,9 @@ until Rem.read(io).remi == 0 do
 			puts "Gamespeed"
 		when Commands::FLARE
 			puts "Flare"
+			out = File.new("data/flare/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			out.write(a.data)
+			count += 1
 		when Commands::GARRISON
 			puts "Garrison"
 		when Commands::TRAIN
