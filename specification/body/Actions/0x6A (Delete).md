@@ -7,7 +7,7 @@ Description
 ```ruby
 def Delete
 	int8 :command 
-	int24 :zero
+	byte24 :zero
 	int32 :object_id
 	int32 :player_id
 end
