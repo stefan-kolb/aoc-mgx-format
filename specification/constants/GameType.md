@@ -1,1 +1,13 @@
-0x00:Random map, 0x01:Regiced, 0x02:Death match, 0x03:Senario, 0x04:campaign, 0x05:King of the Hill, 0x06:Wonder race, 0x07:Defend Wonder, 0x08:Turbo Random map
+```ruby
+module GameType
+  RANDOMMAP = 0x00
+  REGICIDE = 0x01
+  DEATHMATCH = 0x02
+  SCENARIO = 0x03
+  CAMPAIGN = 0x04
+  KINGOFTHEHILL = 0x05
+  WONDERRACE = 0x06
+  DEFENDWONDER = 0x07
+  TURBORANDOMMAP = 0x08
+end
+```
