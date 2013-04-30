@@ -8,6 +8,8 @@ require './commands/tribute'
 require './commands/sell'
 require './commands/buy'
 require './commands/attackground'
+require './commands/stop'
+require './commands/unload'
 
 require 'bindata'
 require 'zlib'
@@ -107,6 +109,10 @@ until Rem.read(io).remi == 0 do
 			count += 1
 		when Commands::STOP
 			puts "Stop"
+			out = File.new("data/stop/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Stop.read(a.data)
+			c.write(out)
+			count += 1			
 		when Commands::DELETE
 			puts "Delete"
 			out = File.new("data/delete/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
@@ -126,7 +132,11 @@ until Rem.read(io).remi == 0 do
 			c.write(out)
 			count += 1
 		when Commands::UNGARRISON
-			puts "UNgarrison"
+			puts "Unload"
+			out = File.new("data/unload/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c = Unload.read(a.data)
+			c.write(out)
+			count += 1
 		when Commands::SELL
 			puts "Sell"
 			out = File.new("data/sell/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")

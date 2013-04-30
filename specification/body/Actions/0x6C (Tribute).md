@@ -27,32 +27,15 @@ The *player_id* may range from `0x01` - `0x08`.
 Check resurce Types in scx format! TODO check if correct.
 
 *:amount*  
-Technically value of *:amount* * 100. practically only two values exist: 
+Technically: value of *:amount* * 100; practically only two values exist: 
 `00x1` = 100, `00x5` = 500 (Shift-Click).
-
-*:zero*  
-The four bytes following the *:amount* should always be unused `0x00`.
 
 ## Examples
 
 Standard
 
 >`6C` &mdash; command  
->`01` &mdash; player id  
+>`01` &mdash; player_id_from  
+>`02` &mdash; player_id_to  
 >`02` &mdash; resource (wood?)  
->`01` &mdash; amount = 100    
->`00 00 00 00` &mdash; zero?  
-
-Shift-Sell
-
->`7A` &mdash; command  
->`01` &mdash; player id  
->`02` &mdash; resource (wood?)  
->`05` &mdash; amount = 500
-
-6C          -> typ
-01          -> player index from
-02          -> player index to
-01          -> res typ
-00 00 C8 42 -> ? irg mit der menge
-9A 99 99 3E -> ?
+>`01` &mdash; amount = 100      

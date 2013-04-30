@@ -32,9 +32,7 @@ Should usually be a zero ended string (`0x00`).
 
 >`FF FF FF FF` &mdash; command  
 >`16 00 00 00` &mdash; chat_len  
->`40 23 36 5B` &mdash; @#6[  
->`6B 4C 75 5D` &mdash; kLu]  
->`5F 77 69 4E` &mdash; _wiN  
->`4E 65 52 3A` &mdash; NeR:  
->`20 62 69 7A` &mdash;  biz  
->`61 00` &mdash; a
+>`40 23 36 5B 6B 4C 75 5D` &mdash; @#6[kLu]    
+>`5F 77 69 4E 4E 65 52 3A` &mdash; _wiNNeR:  
+>`20 62 69 7A 61` &mdash;  biza  
+>`00` &mdash; zero

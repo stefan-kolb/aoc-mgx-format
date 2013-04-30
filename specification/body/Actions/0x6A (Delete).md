@@ -16,7 +16,7 @@ end
 ## Description
 
 *:command*  
-The command identifier for the action attack will always be `0x0B`.
+The command identifier for the action attack will always be `0x6A`.
 
 *:zero*  
 The 3 byte following the *:command* should always be `0x00`.

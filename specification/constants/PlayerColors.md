@@ -1,0 +1,12 @@
+```ruby
+module PlayerColors
+	BLUE = 0x00
+	RED = 0x01
+	GREEN = 0x02
+	YELLOW = 0x03
+	TEAL = 0x04
+	PINK = 0x05
+	GREY = 0x06
+	ORANGE = 0x07
+end
+```
