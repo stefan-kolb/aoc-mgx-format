@@ -1,5 +1,10 @@
 The military stance of the selected units. 
-> `0x00`=> aggressive  
-> `0x01`=> defensive  
-> `0x02`=> stand ground  
-> `0x03`=> passive.s
+
+```ruby
+module Stance
+  AGGRESSIVE = 0x00
+  DEFENSIVE = 0x01
+  STANDGROUND = 0x02
+  PASSIVE = 0x03
+end
+```
