@@ -7,9 +7,11 @@ Description
 ```ruby
 def Stance
 	int8 :command 
-	int8 :player_id
-	int8 :player_number
-	int8 :unknown
+	int8 :selected_units_count
+	int8 :stance
+	array :units, 
+		:type => int32, 
+		:length => :selected_units_count
 end
 ```
 
@@ -21,7 +23,7 @@ The command identifier for the action attack will always be `0x12`.
 *:selected_units_count*  
 
 *:stance*  
-The military stance of the selected units. 
+The military [stance](../../constants/Stance.md) of the selected units. 
 > `0x00`=> aggressive  
 > `0x01`=> defensive  
 > `0x02`=> stand ground  
