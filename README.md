@@ -1,8 +1,11 @@
-aoc-mgx-format
-==============
+## Age of Empires 2: The Conquerors &mdash; Savegame File Format
 
-Gegner Strukturen um 3 * 4 Byte länger. Unklar jedoch wann nur manche. Da wo player id fehlt meist.
+[Specification](specification)
 
-[Specification](specification/body/actions/0x00%20(Attack).md)
+[Ruby Parser](parser)
 
-26.04.2013 00:21:45 
+[Tests](tests)
+
+[References](references)
+
+
