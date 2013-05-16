@@ -7,7 +7,7 @@ bauen von palisade und wall, evtl wegen positionsziehen!
 ```ruby
 class Wall
   int8 :command 
-	int8 :selected_count
+  int8 :selected_count
   int8 :player_id
   float :x_coordinate
   float _y_coordinate
