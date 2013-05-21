@@ -1,7 +1,7 @@
 The military formation of the selected units. 
 
 ```ruby
-module Formations
+module Formation
   LINE = 0x02
   BOX = 0x04
   STAGGERED = 0x07
