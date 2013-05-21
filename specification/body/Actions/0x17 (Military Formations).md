@@ -1,11 +1,11 @@
-# Military Formations
+# Military Formation
 
-Description  
+A player is able to select the military formation of a group of units.
 
 ## Definition
 
 ```ruby
-def Formations
+def Formation
 	int8 :command 
 	int8 :selected_units_count
 	int16 :player_id?
@@ -22,24 +22,19 @@ end
 The command identifier for the action attack will always be `0x17`.
 
 *:selected_units_count*  
+The number of selected units.
 
-*:formations*  
-The military formation of the selected units. 
-> `0x04`=> kasten  
-> `0x07`=> staffel  
-> `0x08`=> flank  
-> `0x02`=> line  
+*:formation*  
+The [military formation](../../constants/Military%20Formations.md) of the selected units. 
 
 *:unit_ids*  
-The identifier of the selected units.
+The ids of the selected units.
 
 ## Examples
 
-Standard
-
 >`12` &mdash; command  
 >`02` &mdash; selected_units_count  
->`01 00` &mdash; player_id
->`04 00 00 00` &mdash; formation  
+>`01 00` &mdash; player_id  
+>`04 00 00 00` &mdash; box formation  
 >`08 00 00 00` &mdash; unit_id  
 >`09 00 00 00` &mdash; unit_id
