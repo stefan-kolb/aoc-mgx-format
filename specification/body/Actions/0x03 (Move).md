@@ -1,6 +1,6 @@
 # Move
 
-Description
+The action encodes unit movements.
 
 ## Definition
 
@@ -25,8 +25,7 @@ end
 The command identifier for the action attack will always be `0x03`.
 
 *:player_id*  
-The *player_id* may range from `0x00` - `0x08`.
-`0x00` will be Gaia move like wolves?
+The *player_id* may range from `0x01` - `0x08`. There do not exist move commands for Gaia.
 
 *:zero*  
 The two bytes following the *:player_id* should always be unused `0x00`.
@@ -44,7 +43,7 @@ The x-coordinate of the attack.
 The y-coordinate of the attack.
 
 *:unit_ids*  
-The identifier of the attacker units. If *:selected_units_count* is `0xFF`, then this structure will not be present.
+The identifier of the attacker units. If *:selected_units_count* is `0xFF` then this structure will not be present.
 
 ## Examples
 
