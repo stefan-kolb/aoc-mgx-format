@@ -66,7 +66,7 @@ Commands.constants.each do |c|
   Dir.mkdir("data/#{c}") unless File.directory?("data/#{c}")
 end
 
-Dir.glob('recs/tribute100.mgx') do |file|
+Dir.glob('recs/*.mgx') do |file|
   # do work
 
 time = 0
