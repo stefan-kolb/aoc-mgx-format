@@ -10,7 +10,8 @@ def Tribute
 	int8 :player_id_from
 	int8 :player_id_to
 	int8 :resource_type
-	float :amount
+	float :market_fee ? 
+	float :amount  ?
 end
 ```
 
@@ -29,6 +30,9 @@ Check resurce Types in scx format! TODO check if correct.
 *:amount*  
 Technically: value of *:amount* * 100; practically only two values exist: 
 `00x1` = 100, `00x5` = 500 (Shift-Click).
+
+*:market_fee*
+The deducted market fee for the tributes. Can be greater equals '0x00'. The sum of *amount* and *market_fee* is the total resource count subtracted from the tributing player.
 
 ## Examples
 
