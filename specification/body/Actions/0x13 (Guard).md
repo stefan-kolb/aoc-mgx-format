@@ -1,6 +1,6 @@
 # Guard
 
-Description  
+Military units can be advised to automatically guard other units.  
 
 ## Definition
 
@@ -19,21 +19,21 @@ end
 ## Description
 
 *:command*  
-The command identifier for the action attack will always be `0x13`.
+The command identifier for the action will always be `0x13`.
 
-*:zero*
+*:zero*  
+These two bytes should be zero.
 
 *:selected_units_count*  
+The number of selected units including the guarded unit.
 
 *:guarded_unit*  
-The unit_id that will be guarded.  
+The id of the unit that will be guarded.  
 
 *:unit_ids*  
-The identifier of the selected units.
+The ids of the selected units.
 
 ## Examples
-
-Standard
 
 >`13` &mdash; command  
 >`00 00` &mdash; zero  
