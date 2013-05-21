@@ -1,7 +1,8 @@
 # Attack
 
-Description  
-Attack auch gegen Bäume?! Alles wo man was anklickt!(Eat,Repair,bekehren,etc)
+This structure represents units "attacking" other units, structures or the environment.
+Actions also include all villager gathering actions and repairing. 
+Moreover, monks converting and healing other units is also considered as attack move.
 
 ## Definition
 
@@ -46,7 +47,7 @@ The x-coordinate of the attack.
 The y-coordinate of the attack.
 
 *:attacker_id*  
-The identifier of the attacker units. If *:selected_units_count* is `0xFF`, then this structure will not be present.
+The identifier of the attacker units. If *:selected_units_count* is `0xFF` then this structure will not be present.
 
 ## Examples
 
