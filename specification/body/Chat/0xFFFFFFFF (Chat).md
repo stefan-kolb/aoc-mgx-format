@@ -22,7 +22,7 @@ The command identifier will always be `0xFFFFFFFF`.
 The *chat_length* should be greater than `0x00`.
 
 *:message*  
-The format of the message is "@#"+ *player_number* + chat message.
+The format of the message is *@#* + *player_number* + chat *message*.
 The *player_number* may range from `0x00`(Gaia) to `0x08`.
 The message should always be a zero ended string (`0x00`).
 
