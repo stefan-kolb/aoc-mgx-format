@@ -61,6 +61,11 @@ end
 
 count = 1
 
+# create debug dump dirs
+Commands.constants.each do |c|
+  Dir.mkdir("data/#{c}") unless File.directory?("data/#{c}")
+end
+
 Dir.glob('recs/*.mgx') do |file|
   # do work
 
@@ -119,7 +124,7 @@ until Rem.read(io).remi == 0 do
 			c = Delete.read(a.data)
 			c.write(out)
 			count += 1
-		when Commands::GROUNDATTACK
+		when Commands::ATTACKGROUND
 			puts "Groundattack"
 			out = File.new("data/attackground/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
 			c = AttackGround.read(a.data)
@@ -131,7 +136,7 @@ until Rem.read(io).remi == 0 do
 			c = Tribute.read(a.data)
 			c.write(out)
 			count += 1
-		when Commands::UNGARRISON
+		when Commands::UNLOAD
 			puts "Unload"
 			out = File.new("data/unload/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
 			c = Unload.read(a.data)
@@ -155,8 +160,14 @@ until Rem.read(io).remi == 0 do
 			puts "Aggro"
 		when Commands::GUARD
 			puts "Guard"
+			out = File.new("data/guard/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c.write(out)
+			count += 1
 		when Commands::FOLLOW
 			puts "Follow"
+			out = File.new("data/follow/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			c.write(out)
+			count += 1
 		when Commands::PATROL
 			puts "Patrol"
 		when Commands::FORMATION
@@ -184,6 +195,9 @@ until Rem.read(io).remi == 0 do
 			puts "Backtowork"
 		when Commands::WAYPOINT
 			puts "Waypoint"
+			out = File.new("data/waypoint/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			out.write(a.data)
+			count += 1
 		when Commands::MULTISAVE
 			puts "Multiplayer Save"
 		else

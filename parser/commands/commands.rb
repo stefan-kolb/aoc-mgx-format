@@ -1,12 +1,12 @@
-class Commands
+module Commands
 	ATTACK = 0x00
   MOVE = 0x03
 	RESIGN = 0x0B
 	STOP = 0x01
 	DELETE = 0x6A
-	GROUNDATTACK = 0x6B
+	ATTACKGROUND = 0x6B
 	TRIBUTE = 0x6C
-	UNGARRISON = 0x6F
+	UNLOAD = 0x6F
 	SELL = 0x7A
 	BUY = 0x7B
 	TOWNBELL = 0x7F
