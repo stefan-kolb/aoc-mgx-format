@@ -1,7 +1,6 @@
 # Stop
 
-Description  
-Stop Struktur auch für tech abbruch!!! zB feud click?! unit abbruch?
+This structure is responsible for stopping actions of the game. Besides stopping moving units, the action can also apply to technology researches and dequeuing of units.
 
 ## Definition
 
@@ -21,9 +20,10 @@ end
 The command identifier for the action attack will always be `0x01`.
 
 *:selected_count*  
+The number of selected objects. If the action stops researches this will only be a single object. 
 
 *obj_ids*  
-
+The ids of the selected objects. This can be unit ids or the id of a building.
 
 ## Examples
 
