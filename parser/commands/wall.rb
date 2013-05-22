@@ -9,5 +9,5 @@ class Wall < BinData::Record
 	float :y_coordinate
 	int32 :obj_id
 	int32 :const
-	array :unit_ids, :type => :int32, :length => :selected_count
+	array :unit_ids, :type => :int32, :initial_length => :selected_count
 end

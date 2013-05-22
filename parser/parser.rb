@@ -187,6 +187,9 @@ until Rem.read(io).remi == 0 do
 			puts "Train"
 		when Commands::GATHER
 			puts "Gather"
+			out = File.new("data/gather/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			out.write(a.data)
+			count += 1	
 		when Commands::BACKTOWORK
 			puts "Backtowork"
 		when Commands::WAYPOINT
