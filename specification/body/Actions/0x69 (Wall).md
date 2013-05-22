@@ -1,6 +1,6 @@
 # Wall
 
-bauen von palisade und wall, evtl wegen positionsziehen!
+bauen von palisade und wall, evtl wegen positionsziehen! auch wenn nicht gezogen wird?
 
 ## Definition
 
@@ -22,7 +22,7 @@ end
 ## Description
 
 *:command*  
-The command identifier for the action attack will always be `0x69`.
+The command identifier for the action will always be `0x69`.
 
 *:selected_count*  
 

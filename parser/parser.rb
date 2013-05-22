@@ -1,20 +1,10 @@
-require './commands/move'
-require './commands/gamestart'
-require './commands/chat'
-require './commands/commands'
-require './commands/delete'
-require './commands/resign'
-require './commands/tribute'
-require './commands/sell'
-require './commands/buy'
-require './commands/attackground'
-require './commands/stop'
-require './commands/unload'
-
+require 'require_all'
 require 'bindata'
 require 'zlib'
 
-# tempo disable stdout
+require_all 'commands'
+
+# temporary disable stdout
 #module Kernel; def puts(*args) end end
 
 class Header < BinData::Record
@@ -178,6 +168,9 @@ until Rem.read(io).remi == 0 do
 			puts "Build"
 		when Commands::WALL
 			puts "Waller :("
+			out = File.new("data/wall/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			out.write(a.data)
+			count += 1			
 		when Commands::GAMESPEED
 			puts "Gamespeed"
 		when Commands::FLARE
@@ -217,5 +210,3 @@ until Rem.read(io).remi == 0 do
 end
 
 end
-
-# wow its like 100000000 times shorter than the old java version
