@@ -1,11 +1,11 @@
-# Gather
+# Gather Point
 
 Sets gather points for units. Gather points can be set on coordinates or objects and resources that should be attacked after unloading or creation (e.g. deer, castle).  
 
 ## Definition
 
 ```ruby
-def Gather
+def GatherPoint
 	int8 :command 
 	int8 :selected_count
 	int16 :zero
@@ -22,7 +22,7 @@ end
 ## Description
 
 *:command*  
-The command identifier for the action will always be `0x80`.
+The command identifier for the action will always be `0x78`.
 
 *:selected_count*  
 The number of selected objects for which the gather point will be set.
