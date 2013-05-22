@@ -30,7 +30,7 @@ Check resurce Types in scx format! TODO check if correct.
 
 *:amount*  
 Technically value of *:amount* * 100. practically only two values exist: 
-`00x1` = 100, `00x5` = 500 (Shift-Click).
+`0x01` = 100, `0x05` = 500 (Shift-Click).
 
 *:zero*  
 The four bytes following the *:amount* should always be unused `0x00`.

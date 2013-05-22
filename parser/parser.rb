@@ -146,6 +146,9 @@ until Rem.read(io).remi == 0 do
 			count += 1
 		when Commands::TOWNBELL
 			puts "Townbell"
+			out = File.new("data/townbell/#{a.cmd}" << "_" << count.to_s << ".dump", "w+")
+			out.write(a.data)
+			count += 1	
 		when Commands::AGGRO
 			puts "Aggro"
 		when Commands::GUARD
