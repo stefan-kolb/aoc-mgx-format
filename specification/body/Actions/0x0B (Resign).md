@@ -1,6 +1,6 @@
 # Resign
 
-This structure will be present if a player resignes from the game.
+This structure will be present if a player resigns from the game.
 Resign can happen multiple times for same player.Then *:unknown* is 0x01. Dunno what that means at the moment.
 
 ## Definition

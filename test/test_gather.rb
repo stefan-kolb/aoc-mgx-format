@@ -20,4 +20,15 @@ class TestGather < MiniTest::Unit::TestCase
 			# array :objects, :type => :int32, :initial_length => :selected_count
 		end
 	end
+	
+	def test_length
+		Dir.glob(__dir__ + '/../parser/data/gather/*.dump') do |dump|
+			io = File.open(dump)
+			struct = Gather.read(io)
+			expected = (4*32+8+16+ struct.selected_count * 32)
+			is = File.size(dump) *8
+			
+			assert(((expected == is) || (expected + 3*32) == is), "Expected length of " + expected.to_s + " but is " + is.to_s + " - file: " + dump)
+		end
+	end
 end
