@@ -18,3 +18,6 @@ Just fork the repository, commit your changes and send a pull request describing
 2. Make Changes
 3. Send Pull Request
 
+---
+[![Dependency Status](https://gemnasium.com/stefan-kolb/aoc-mgx-format.png)](https://gemnasium.com/stefan-kolb/aoc-mgx-format)
+
