@@ -56,7 +56,7 @@ Commands.constants.each do |c|
   Dir.mkdir("data/#{c}") unless File.directory?("data/#{c}")
 end
 
-Dir.glob('recs/*.mgx') do |file|
+Dir.glob('recs/rec6.mgx') do |file|
   # do work
 
 time = 0
@@ -75,10 +75,10 @@ until Rem.read(io).remi == 0 do
 			puts "Gamestart"
 			Gamestart.read(io)
 		elsif vier.type == -1
-			puts "Chat"
 			c = Chat.read(io)
 			out = File.new("data/chat/#{ope.type}" << "_" << count.to_s << ".dump", "wb+")
 			c.write(out)
+      puts c
 			count += 1
 		else
 			puts "Unknown 4"
@@ -97,10 +97,10 @@ until Rem.read(io).remi == 0 do
 		when Commands::MOVE
 			puts "Move"
 		when 	Commands::RESIGN
-			puts "Resign"
 			out = File.new("data/resign/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Resign.read(a.data)
 			out.write(a.data)
+      puts c
 			count += 1
 		when Commands::STOP
 			puts "Stop"
