@@ -35,9 +35,9 @@ class TestFlare < MiniTest::Test
 			#float :x_coordinate
 			#float :y_coordinate
 			# player id range [1;8]
-			assert((1..8).member?(struct.player_id), "Player ID out of range [1;8]: " + struct.player_id.to_s + dump)
+			assert((1..8).member?(struct.player_id), "PlayerInfo ID out of range [1;8]: " + struct.player_id.to_s + dump)
 			# player number range [1;8]
-			#assert((1..8).member?(struct.player_number), "Player number out of range [1;8]: " + struct.player_number.to_s + dump)
+			#assert((1..8).member?(struct.player_number), "PlayerInfo number out of range [1;8]: " + struct.player_number.to_s + dump)
 			#int8 :zero7
 			#assert(struct.zero7.zero?, "zero7 not zero: " + struct.zero7.to_s + " " + dump)
 			#int8 :zero8

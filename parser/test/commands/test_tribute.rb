@@ -15,7 +15,7 @@ class TestTribute < MiniTest::Test
 			player? struct.player_id_from, dump
 			player? struct.player_id_to, dump
 			# tributes must be sent from and to different players
-			refute_equal(struct.player_id_to, struct.player_id_from, "Player IDs from and to may not be equal") 		
+			refute_equal(struct.player_id_to, struct.player_id_from, "PlayerInfo IDs from and to may not be equal")
 			# resource range [0;3] (excluding gold)
 			assert((0..3).member?(struct.resource_type), "Resource type not in range" + dump) 
 			# market fee range [0;1]
