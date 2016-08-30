@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/chat'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/chat'
 
 require_relative '../test_helper'
 

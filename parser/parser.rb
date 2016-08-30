@@ -2,7 +2,7 @@ require 'require_all'
 require 'bindata'
 require 'zlib'
 
-require_all 'commands'
+require_all 'lib/aoc-mgx/body'
 
 # temporary disable stdout
 #module Kernel; def puts(*args) end end
@@ -52,11 +52,12 @@ end
 count = 1
 
 # create debug dump dirs
+FIXTURES = "test/fixtures"
 Commands.constants.each do |c|
-  Dir.mkdir("data/#{c}") unless File.directory?("data/#{c}")
+  Dir.mkdir("#{FIXTURES}/#{c}") unless File.directory?("#{FIXTURES}/#{c}")
 end
 
-Dir.glob('recs/rec6.mgx') do |file|
+Dir.glob('recs/aoc/TheViper=vs=8th_wonder--17-Dec-2013--SC.mgz') do |file|
   # do work
 
 time = 0
@@ -76,7 +77,7 @@ until Rem.read(io).remi == 0 do
 			Gamestart.read(io)
 		elsif vier.type == -1
 			c = Chat.read(io)
-			out = File.new("data/chat/#{ope.type}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/chat/#{ope.type}" << "_" << count.to_s << ".dump", "wb+")
 			c.write(out)
       puts c
 			count += 1
@@ -97,63 +98,63 @@ until Rem.read(io).remi == 0 do
 		when Commands::MOVE
 			puts "Move"
 		when 	Commands::RESIGN
-			out = File.new("data/resign/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/resign/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Resign.read(a.data)
 			out.write(a.data)
       puts c
 			count += 1
 		when Commands::STOP
 			puts "Stop"
-			out = File.new("data/stop/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/stop/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Stop.read(a.data)
 			c.write(out)
 			count += 1			
 		when Commands::DELETE
 			puts "Delete"
-			out = File.new("data/delete/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/delete/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Delete.read(a.data)
 			c.write(out)
 			count += 1
 		when Commands::ATTACKGROUND
 			puts "Groundattack"
-			out = File.new("data/attackground/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/attackground/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = AttackGround.read(a.data)
 			c.write(out)
 			count += 1
 		when Commands::TRIBUTE
 			puts "Tribute"
-			out = File.new("data/tribute/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/tribute/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Tribute.read(a.data)
 			c.write(out)
 			count += 1
 		when Commands::UNLOAD
 			puts "Unload"
-			out = File.new("data/unload/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/unload/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Unload.read(a.data)
 			c.write(out)
 			count += 1
 		when Commands::SELL
 			puts "Sell"
-			out = File.new("data/sell/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/sell/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Sell.read(a.data)
 			c.write(out)
 			count += 1
 		when Commands::BUY
 			puts "Buy"
-			out = File.new("data/buy/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/buy/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c = Buy.read(a.data)
 			c.write(out)
 			count += 1
 		when Commands::TOWNBELL
 			puts "Townbell"
-			out = File.new("data/townbell/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/townbell/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			out.write(a.data)
 			count += 1	
 		when Commands::AGGRO
 			puts "Aggro"
 		when Commands::GUARD
 			puts "Guard"
-			out = File.new("data/guard/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/guard/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			c.write(out)
 			count += 1
 		when Commands::FOLLOW
@@ -171,14 +172,14 @@ until Rem.read(io).remi == 0 do
 			puts "Build"
 		when Commands::WALL
 			puts "Waller :("
-			out = File.new("data/wall/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/wall/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			out.write(a.data)
 			count += 1			
 		when Commands::GAMESPEED
 			puts "Gamespeed"
 		when Commands::FLARE
 			puts "Flare"
-			out = File.new("data/flare/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/flare/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			out.write(a.data)
 			count += 1
 		when Commands::GARRISON
@@ -187,14 +188,14 @@ until Rem.read(io).remi == 0 do
 			puts "Train"
 		when Commands::GATHER
 			puts "Gather"
-			out = File.new("data/gather/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/gather/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			out.write(a.data)
 			count += 1	
 		when Commands::BACKTOWORK
 			puts "Backtowork"
 		when Commands::WAYPOINT
 			puts "Waypoint"
-			out = File.new("data/waypoint/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
+			out = File.new("#{FIXTURES}/waypoint/#{a.cmd}" << "_" << count.to_s << ".dump", "wb+")
 			out.write(a.data)
 			count += 1
 		when Commands::MULTISAVE

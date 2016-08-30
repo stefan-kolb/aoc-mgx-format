@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/flare'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/flare'
 
 require_relative '../test_helper'
 

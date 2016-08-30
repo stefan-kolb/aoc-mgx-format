@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/unload'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/unload'
 require 'set'
 
 require_relative '../test_helper'

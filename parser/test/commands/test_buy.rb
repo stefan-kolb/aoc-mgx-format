@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/buy'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/buy'
 
 require_relative '../test_helper'
 

@@ -1,6 +1,6 @@
 require 'bindata'
 
-require_relative '../../structures/mgx_record'
+require_relative '../../../../parser/lib/aoc-mgx/mgx_record'
 
 class Buy < Mgx::Record
 	int8 :player_id

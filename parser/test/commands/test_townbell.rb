@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/townbell'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/townbell'
 
 require_relative '../test_helper'
 

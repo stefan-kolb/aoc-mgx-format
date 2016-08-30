@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/attackground'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/attackground'
 
 require_relative '../test_helper'
 

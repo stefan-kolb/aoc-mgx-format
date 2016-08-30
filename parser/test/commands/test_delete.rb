@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/delete'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/delete'
 
 require_relative '../test_helper'
 

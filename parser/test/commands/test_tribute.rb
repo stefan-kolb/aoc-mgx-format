@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/structures/body/tribute'
+﻿require_relative '../../../parser/lib/aoc-mgx/body/tribute'
 
 require_relative '../test_helper'
 

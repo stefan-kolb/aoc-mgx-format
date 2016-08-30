@@ -5,6 +5,10 @@ ruby '2.3.1'
 gem 'bindata'
 gem 'require_all'
 
+group :development do
+  gem 'rubocop'
+end
+
 group :test do
   gem 'minitest'
 end
