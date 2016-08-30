@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.3.1'
 
 gem 'bindata'
-gem 'require_relative'
 gem 'require_all'
 
 group :test do
   gem 'minitest'
-  gem 'shoulda-context'
 end

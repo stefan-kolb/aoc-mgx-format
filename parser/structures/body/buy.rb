@@ -1,5 +1,7 @@
 require 'bindata'
 
+require_relative '../../structures/mgx_record'
+
 class Buy < Mgx::Record
 	int8 :player_id
 	int8 :resource_type

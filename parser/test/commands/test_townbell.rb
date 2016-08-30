@@ -4,11 +4,11 @@ require_relative '../test_helper'
 
 class TestTownbell < MiniTest::Test
   def setup
-    @files = Dir.glob(__dir__ + '/../fixtures/townbell/*.dump')
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/townbell/*.dump'))
   end
 	
 	def test_structure
-		Dir.glob(__dir__ + '/../parser/data/townbell/*.dump') do |dump|
+		@files.each do |dump|
 			io = File.open(dump)
 			struct = Townbell.read(io)
 			
