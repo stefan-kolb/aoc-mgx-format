@@ -5,6 +5,5 @@ class AttackGround < Mgx::Record
   int16 :zero
   float :x_coordinate
   float :y_coordinate
-  array :unit_ids, type: :int32,
-                   length: :selected_units_count
+  array :unit_ids, type: :int32, initial_length: :selected_units_count
 end

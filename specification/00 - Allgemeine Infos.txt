@@ -3,17 +3,16 @@ TODO Dropped Games
 Need to write tests for every structure
 
 Reveal Map wird nicht mitgespeichert.
-Fehler sind meistens 3 Ints am Ende mehr!!! Was könnte das sein? anderer Player???
-Gegnerstrukturen immer 3 * 4 Bytes länger!!!
+Fehler sind meistens 3 Ints am Ende mehr!!! Was kï¿½nnte das sein? anderer Player???
+Gegnerstrukturen immer 3 * 4 Bytes lï¿½nger!!!
 Monch bekehren = attak, heilen attack?
 Player 2 strukturen eventuell mit sync infos oderso machen auf jedenfall keinen sinn bis jetzt
 
 End const = ende der aktion?! als sync zeit...in wieweit macht das sinn? sync davor/danach
-einlesen der datein weil sehr lange dauernd wie bei mp3 tags mit option -> winamp
 
-IDs für Gebäude etc.???
+IDs fï¿½r Gebï¿½ude etc.???
 ------------------------------
-Aufsteuigend ohne Lücke? Jedes Gebäude/Unit erhält ID
+Aufsteuigend ohne Lï¿½cke? Jedes Gebï¿½ude/Unit erhï¿½lt ID
 Anfangspunkt???
 Besispiel up.mgx
 Killbares auf der map auch id ?! wood food...die infi im header bei irg unknown?! map[x][y]
@@ -35,7 +34,7 @@ P2:Vill		-> 1890
 P2:Vill		-> 1891
 P2:Vill		-> 1892
 
-Häuser:
+Hï¿½user:
 -------------------------
 P1:Haus		-> 2071?
 P1:Haus		-> 2072?

@@ -21,28 +21,28 @@ class RecordedGame < Mgx::Record
   int32 :map_size_x
   int32 :map_size_y
   int32 :unknown_num
-  # TODO: skip :length => lambda {  (1275 + map_size_x * map_size_y  * 4 * num_float 6) *  unknown_num }
-  # skip unknown  if necessary
-  skip length: 2
-  # array :map_data, :type => :map, :read_until => lambda { index + 1 == map_size_x * map_size_y }
-  skip length: -> { map_size_x * map_size_y * 2 }
-  skip length: 120
-  int32 :map_size_x2
-  int32 :map_size_y2
-  skip length: -> { 4 * map_size_x2 * map_size_y2 }
-  # skip :length => 15
-  # player info
-  # player_info = PlayerInfo.new(num_players: :player_count)
-  # array :player_info, :type => player_info, :read_until => lambda { index + 1 == player_count }
-  array :unused, type: :int64, read_until: -> { element == '0x3FF999999999999A'.to_i(16) }
-  skip length: 1
-  int32 :num_trigger
-  array :trigger_info, type: :trigger, read_until: -> { index + 1 == num_trigger }
-  skip length: -> { num_trigger * 4 }
-
-  array :team_indexes, type: :int8, read_until: -> { index + 1 == 8 }
-  skip length: 1 # , :onlyif => lambda { patch_version < 12.3 } # TODO really?
-  skip length: 18
-  int32 :num_chat
-  array :pregame_chat, type: :chat, read_until: -> { index + 1 == num_chat }
+  #   # TODO: skip :length => lambda {  (1275 + map_size_x * map_size_y  * 4 * num_float 6) *  unknown_num }
+  #   # skip unknown  if necessary
+  #   skip length: 2
+  #   # array :map_data, :type => :map, :read_until => lambda { index + 1 == map_size_x * map_size_y }
+  #   skip length: -> { map_size_x * map_size_y * 2 }
+  #   skip length: 120
+  #   int32 :map_size_x2
+  #   int32 :map_size_y2
+  #   skip length: -> { 4 * map_size_x2 * map_size_y2 }
+  #   # skip :length => 15
+  #   # player info
+  #   # player_info = PlayerInfo.new(num_players: :player_count)
+  #   # array :player_info, :type => player_info, :read_until => lambda { index + 1 == player_count }
+  #   array :unused, type: :int64, read_until: -> { element == '0x3FF999999999999A'.to_i(16) }
+  #   skip length: 1
+  #   int32 :num_trigger
+  #   array :trigger_info, type: :trigger, read_until: -> { index + 1 == num_trigger }
+  #   skip length: -> { num_trigger * 4 }
+  #
+  #   array :team_indexes, type: :int8, read_until: -> { index + 1 == 8 }
+  #   skip length: 1 # , :onlyif => lambda { patch_version < 12.3 } # TODO really?
+  #   skip length: 18
+  #   int32 :num_chat
+  #   array :pregame_chat, type: :chat, read_until: -> { index + 1 == num_chat }
 end
