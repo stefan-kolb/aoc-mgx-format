@@ -4,15 +4,11 @@
 
 ## Table of Contents
 
-* [Document Format](#document-format)
 * [Structure Definitions](#structure-definitions)
 * [Ruby Parser](parser)
 * [References](references)
 * [Actions](#actions)
 * [FAQ](#faq)
-
-## Document Format
-The specification document uses *GitHub Flavored Markdown (GFM)*. More information on this can be found [here](http://github.github.com/github-flavored-markdown/).
 
 ## Structure Definitions
 The structure definitions kind of follow the *BinData Ruby Gem* declarations. They should be as readable as pseudo code though.
@@ -56,7 +52,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x77  | TRAIN        |   |   |   |
 | 0x78  | GATHER       |   |   |   |
 | 0x80  | BACKTOWORK   |   |   |   |
-| 0xFF  | ACHIEVEMENTS | UP only  |   |   |
+| 0xFF  | RECAP        | UP only  |   |   |
 |   |   |   |   |   |
 
 ## FAQ
