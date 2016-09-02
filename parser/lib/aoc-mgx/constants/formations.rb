@@ -1,4 +1,4 @@
-class Formation
+module Formations
   LINE = 0x02
   BOX = 0x04
   STAGGERED = 0x07

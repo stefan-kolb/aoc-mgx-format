@@ -53,18 +53,18 @@ class ActionCmd < Mgx::Record
 
   choice :action, selection: :tag,
                   choices: {
-                    Commands::RESIGN => :resign,
+                    #Commands::RESIGN => :resign,
                     # Commands::ATTACKGROUND => :attack_ground,
                     # Commands::BUY => :buy,
                     # Commands::DELETE => :delete,
                     # Commands::FLARE => :flare,
                     # Commands::FORMATION => :formation,
-                    Commands::GATHER => Unknown.new(data_len: -> { len - 1 }),
+                    #Commands::GATHER => Unknown.new(data_len: -> { len - 1 }),
                     # Commands::MOVE => :move,
                     # Commands::SELL => :sell,
                     # Commands::STOP => :stop,
-                    Commands::TOWNBELL => :townbell,
-                    Commands::BACKTOWORK => Unknown.new(data_len: -> { len - 1 }),
+                    #Commands::TOWNBELL => :townbell,
+                    #Commands::BACKTOWORK => Unknown.new(data_len: -> { len - 1 }),
                     # Commands::TRIBUTE => :tribute,
                     # Commands::UNLOAD => :unload,
                     # Commands::WALL => :wall,
@@ -102,6 +102,12 @@ class Rem < BinData::Record
 end
 
 def dump(file, data)
+  dir = File.dirname(file)
+  # create debug dump dirs
+  Dir.mkdir(dir) unless File.directory?(dir)
+
+  return if Dir.glob("#{dir}/*.*").count >= 1000
+
   File.open(file, 'wb+') do |out|
     out.write(data)
   end
@@ -109,11 +115,7 @@ end
 
 count = 1
 
-# create debug dump dirs
-FIXTURES = 'test/fixtures'.freeze
-Commands.constants.each do |c|
-  Dir.mkdir("#{FIXTURES}/#{c}") unless File.directory?("#{FIXTURES}/#{c}")
-end
+
 
 duration = Hitimes::Interval.measure do
   Dir.glob('recs/aoc/*.*') do |file|
@@ -163,15 +165,13 @@ duration = Hitimes::Interval.measure do
           end
         end
 
-        # unless [1,2,4].include?(ope.action.selection)
-        #   puts ope.tag
-        #   dump("tag#{count}", ope.tag)
-        #   dump(count, ope.action.data)
-        # end
-
-        if ope.action.respond_to?(:tag) && ope.action.tag == Commands::GAMESPEED
-          dump("#{FIXTURES}/gamespeed/#{count}.dump", ope.action.action.data)
+        unless [2,4].include?(ope.action.selection)
+          if ope.action.respond_to?(:tag) #&& ope.action.tag == Commands::GAMESPEED
+            dump("test/fixtures/#{ope.action.tag.to_hex}/#{count}.dump", ope.action.action.data)
+            count += 1
+          end
         end
+
         #puts "Time #{gametime}"
         # specify command types that should be logged
         puts ope.inspect if [].include?(ope.tag)
@@ -182,7 +182,7 @@ duration = Hitimes::Interval.measure do
       end
     end
 
-    count += 1
+    #count += 1
   end
 end
 
