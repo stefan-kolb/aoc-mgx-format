@@ -26,4 +26,5 @@ module Commands
   BUY = 0x7B
   TOWNBELL = 0x7F
   BACKTOWORK = 0x80
+  GAMESTATS = 0xFF
 end

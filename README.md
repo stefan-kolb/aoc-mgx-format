@@ -28,7 +28,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x03  | [MOVE](spec/body/actions/03-move.md)         |   |   |   |
 | 0x6a  | [DELETE](spec/body/actions/6a-delete.md)       |   |   | + |
 | 0x6b  | ATTACKGROUND |   |   |   |
-| 0x6c  | TRIBUTE      |   |   |   |
+| 0x6c  | [TRIBUTE](spec/body/actions/6c-tribute.md)      |   |   |   |
 | 0x6e  | ?            |   |   |   |
 | 0x6f  | UNLOAD       |   |   |   |
 | 0x7a  | SELL         |   |   |   |
