@@ -1,17 +1,16 @@
 # Resign
 
 This structure will be present if a player resigns from the game.
-Resign can happen multiple times for same player.Then *:unknown* is 0x01. Dunno what that means at the moment.
-One player index should only resign once!
+Resign can happen multiple times for the same player. This only happens when *:disconnect* is 0x01.
 
 ## Definition
 
 ```ruby
 def Resign
-	int8 :command 
-	int8 :player_id
-	int8 :player_number
-	int8 :unknown
+  int8 :command 
+  int8 :player_id
+  int8 :player_number
+  int8 :disconnect
 end
 ```
 
@@ -33,21 +32,12 @@ This value should be equivalent to the player color ids.
 > Player 2 = { player_id: `0x02`, player_number: `0x02` }  
 > Player 3 = { player_id: `0x02`, player_number: `0x03` }  
 
-*:unknown*  
-The byte following the *:player_number* should always be `0x00` or `0x01`.
+*:disconnect*  
+This value is `0x01` if a player has been disconnected.
 
 ## Examples
-
-Standard
 
 >`0B` &mdash; command  
 >`01` &mdash; player id  
 >`01` &mdash; player_number  
->`00` &mdash; zero
-
-Cooperation
-
->`0B` &mdash; command  
->`01` &mdash; player id  
->`03` &mdash; player_number  
->`00` &mdash; zero  
+>`00` &mdash; disconnect  

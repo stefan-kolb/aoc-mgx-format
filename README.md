@@ -52,7 +52,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x77  | TRAIN        |   |   |   |
 | 0x78  | GATHER       |   |   |   |
 | 0x80  | BACKTOWORK   |   |   |   |
-| 0xFF  | RECAP        | UP only  |   |   |
+| 0xFF  | GAMESTATS    | UP only  |   |   |
 |   |   |   |   |   |
 
 ## FAQ
