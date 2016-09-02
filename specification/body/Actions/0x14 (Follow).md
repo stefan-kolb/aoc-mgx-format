@@ -1,6 +1,6 @@
 # Follow
 
-Description  
+Follow a particular unit.  
 
 ## Definition
 

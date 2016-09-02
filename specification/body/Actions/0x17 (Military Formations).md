@@ -8,7 +8,8 @@ A player is able to select the military formation of a group of units.
 def Formation
 	int8 :command 
 	int8 :selected_units_count
-	int16 :player_id?
+	int8 :player_id
+	int8 :zero
 	int32 :formation
 	array :unit_ids,
 		:type => int32,
@@ -23,6 +24,12 @@ The command identifier for the action attack will always be `0x17`.
 
 *:selected_units_count*  
 The number of selected units.
+
+*:player_id*  
+The player ID.
+
+*:zero*  
+Unused data.
 
 *:formation*  
 The [military formation](../../constants/Military%20Formations.md) of the selected units. 

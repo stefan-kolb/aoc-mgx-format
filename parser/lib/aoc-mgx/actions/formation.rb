@@ -1,9 +1,10 @@
-require 'bindata'
+require_relative '../mgx_record'
 
 class Formation < Mgx::Record
   int8 :command
   int8 :selected_units_count
-  int16 :player_id
+  int8 :player_id
+  int8 :zero
   int32 :formation
-  array :unit_ids, type: :int32, read_until: -> { index + 1 == selected_units_count }
+  array :unit_ids, type: :int32, initial_length: :selected_units_count
 end

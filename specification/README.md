@@ -22,3 +22,5 @@ Known but structures missing
 Fully tested and known
 
 - [x] Delete (0x6A)
+
+Table which action include which common data: player_id is almost always necessary?!

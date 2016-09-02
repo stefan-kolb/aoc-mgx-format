@@ -1,4 +1,5 @@
 require_relative '../lib/aoc-mgx/header/version'
+require_relative '../lib/aoc-mgx/constants/formations'
 
 module AoC
   module Assertions
@@ -24,6 +25,11 @@ module AoC
 
     def unused_bytes?(data, file)
       assert_equal(0, data, "Bytes not unused #{file}")
+    end
+
+    def formation?(data, file)
+      formations = Formations.constants { |c| Constants.const_get(c) }
+      assert(formations.include?(data), "Not a formation (#{file})")
     end
 
     # 120x120 - Tiny (2 players)
