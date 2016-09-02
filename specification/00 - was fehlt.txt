@@ -1,8 +1,6 @@
-felder einsähen?
+felder einsï¿½hen?
 diplomatie (nicht gespeichert?! oder bei gamespeed = options)
-entpacken (ungarrison)/packen (garrison)
 dequeue units = garrison (wtf?)
-pause(nicht gespeichert!)
 gaia bewegt sich rehe zb? wenn dann auch move?
 heilen (?)/bekehren (attack)
 reparieren (attack)
@@ -13,3 +11,9 @@ bieglieux: sometimes header of the saved chapter is in $03 command, instead of $
 
 multiplayer speichern = 18
 Spiel speichern
+wonderrace?
+other game types, scenarios
+teamgames
+aok
+aofe
+aochd

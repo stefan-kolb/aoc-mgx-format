@@ -1,17 +1,12 @@
-NEED TO VERIFY EVERYTHING BY GENERATING ACTIONS
+NEED TO VERIFY EVERYTHING BY GENERATING ACTIONS (final goal)
 TODO Dropped Games
-Need to write tests for every structure
 
-Reveal Map wird nicht mitgespeichert.
 Fehler sind meistens 3 Ints am Ende mehr!!! Was k�nnte das sein? anderer Player???
-Gegnerstrukturen immer 3 * 4 Bytes l�nger!!!
-Monch bekehren = attak, heilen attack?
+Gegnerstrukturen/Fehler? immer 3 * 4 Bytes l�nger!!!
 Player 2 strukturen eventuell mit sync infos oderso machen auf jedenfall keinen sinn bis jetzt
 
-End const = ende der aktion?! als sync zeit...in wieweit macht das sinn? sync davor/danach
+Monch bekehren = attak, heilen attack?
 
-IDs f�r Geb�ude etc.???
-------------------------------
 Aufsteuigend ohne L�cke? Jedes Geb�ude/Unit erh�lt ID
 Anfangspunkt???
 Besispiel up.mgx
