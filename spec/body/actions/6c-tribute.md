@@ -6,12 +6,12 @@ This structure represents tributes between players. A separate tribute is saved 
 
 ```ruby
 def Tribute
-	int8 :command
-	int8 :player_id_from
-	int8 :player_id_to
-	int8 :resource_type  
-	float :amount 
-	float :fee  
+  int8 :command
+  int8 :player_id_from
+  int8 :player_id_to
+  int8 :resource_type  
+  float :amount 
+  float :fee  
 end
 ```
 
@@ -28,10 +28,10 @@ The *player_id* may range from `0x01` - `0x08`.
 TODO check if correct.
 
 *:fee*  
-The market fee for the tributes in percentage.
+The market fee for the tributes in percentage between 0.0 and 1.0.
 
 *:amount*  
-The total amount of resources sent.
+The total positive amount of resources sent.
 
 ## Examples
 
