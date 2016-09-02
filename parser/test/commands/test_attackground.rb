@@ -2,7 +2,7 @@
 
 require_relative '../test_helper'
 
-class TestTribute < MiniTest::Test
+class TestAttackground < MiniTest::Test
   def setup
     @files = Dir.glob(File.join(__dir__, '..', 'fixtures/attackground/*.dump'))
   end

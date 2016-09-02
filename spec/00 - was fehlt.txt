@@ -1,0 +1,22 @@
+felder eins�hen?
+diplomatie (nicht gespeichert?! oder bei gamespeed = options)
+dequeue units = garrison (wtf?)
+gaia bewegt sich rehe zb? wenn dann auch move?
+heilen (?)/bekehren (attack)
+reparieren (attack)
+kapitel speichern => kackt save structure ab maybe kommt dann wieder header oderso
+bieglieux: sometimes header of the saved chapter is in $03 command, instead of $20 as it should be,
+           when this happens the length of $20 command is $0E, otherwise it is $02 (always?, rule?),
+           we do not rely on it, that's why we are skipping saved chapter data here and not in $20 command
+
+multiplayer speichern = 18
+Spiel speichern
+wonderrace?
+other game types, scenarios
+teamgames
+aok
+aofe
+aochd
+mac rec games?
+
+http://ggtracker.com/matches/5437719

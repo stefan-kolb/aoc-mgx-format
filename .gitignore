@@ -1,5 +1,5 @@
 parser/data/
-parser/unknown/
+parser/dumps/
 parser/recs/
 .idea
 coverage/

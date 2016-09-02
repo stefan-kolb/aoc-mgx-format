@@ -4,7 +4,7 @@ require_relative '../test_helper'
 
 class TestDelete < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/delete/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/6a/*.dump'))
   end
 
   def test_structure

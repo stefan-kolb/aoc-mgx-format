@@ -118,10 +118,11 @@ count = 1
 
 
 duration = Hitimes::Interval.measure do
-  Dir.glob('recs/aok/*.*') do |file|
+  Dir.glob('recs/dm/*.*') do |file|
     gametime = 0 # TODO: does it really start at 0
 
     File.open(file, 'rb') do |io|
+      puts file
       head_comp = Header.read(io)
       #uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
       # out = File.new("#{FIXTURES}/header/" << File.basename(file) << ".dump", "wb+")
@@ -165,8 +166,8 @@ duration = Hitimes::Interval.measure do
 
         unless [2,4].include?(ope.action.selection)
           if ope.action.respond_to?(:tag) #&& ope.action.tag == Commands::GAMESPEED
-            dump("test/fixtures/#{ope.action.tag.to_hex}/#{count}.dump", ope.action.action.data)
-            count += 1
+            require 'securerandom'
+            dump("test/fixtures/#{ope.action.tag.to_hex}/#{SecureRandom.uuid}.dump", ope.action.action.data)
           end
         end
 

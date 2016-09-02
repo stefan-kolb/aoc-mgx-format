@@ -4,7 +4,7 @@ require_relative '../test_helper'
 
 class TestFlare < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/flare/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/73/*.dump'))
   end
 
   def test_structure
