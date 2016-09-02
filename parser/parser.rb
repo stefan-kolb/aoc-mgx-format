@@ -116,20 +116,20 @@ Commands.constants.each do |c|
 end
 
 duration = Hitimes::Interval.measure do
-  Dir.glob('recs/aoc/50th Anniversary R2 Capoch vs Dust.mgx') do |file|
+  Dir.glob('recs/aoc/*.*') do |file|
     # do work
     # TODO: maybe some synch infos are also in gamestart
     gametime = 0 # TODO: maybe some gamestart info is missing and it does not start at 0
 
     File.open(file, 'rb') do |io|
       head_comp = Header.read(io)
-      uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
+      #uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
       # out = File.new("#{FIXTURES}/header/" << File.basename(file) << ".dump", "wb+")
       # File.write(out, uncompressed_data)
       # out.close
       #puts uncompressed_data
       # BinData::trace_reading do
-      header = RecordedGame.read(uncompressed_data)
+      #header = RecordedGame.read(uncompressed_data)
       # end
 
       # count += 1
@@ -148,14 +148,6 @@ duration = Hitimes::Interval.measure do
       #     puts t.description
       #     puts t.text
       #   end
-      puts header.num_trigger
-      puts header.pop_limit
-      puts header.game_type
-      puts header.lock_diplomacy
-      puts header.num_chat
-      header.pregame_chat.each do |m|
-        puts m.message
-      end
       #   out = File.new("#{FIXTURES}/header/" << count.to_s << '.dump', 'wb+')
       #   header.write(out)
       #   count += 1
@@ -177,8 +169,8 @@ duration = Hitimes::Interval.measure do
         #   dump(count, ope.action.data)
         # end
 
-        if ope.action.respond_to?(:tag) && ope.action.tag == Commands::GATHER
-          dump("#{FIXTURES}/gather/#{count}.dump", ope.action.action.data)
+        if ope.action.respond_to?(:tag) && ope.action.tag == Commands::GAMESPEED
+          dump("#{FIXTURES}/gamespeed/#{count}.dump", ope.action.action.data)
         end
         #puts "Time #{gametime}"
         # specify command types that should be logged

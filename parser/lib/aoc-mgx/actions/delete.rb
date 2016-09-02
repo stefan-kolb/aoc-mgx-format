@@ -1,4 +1,4 @@
-require 'bindata'
+require_relative '../mgx_record'
 
 class Delete < Mgx::Record
   int24 :zero

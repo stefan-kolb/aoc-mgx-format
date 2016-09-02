@@ -12,8 +12,8 @@ class TestDelete < MiniTest::Test
       io = File.open(dump)
       struct = Delete.read(io)
 
-      assert_equal(0, struct.zero, 'Bytes not unused')
-      # assert(struct.obj_id, "Gebäude id keine Nummer #{struct.obj_id.class}")
+      unused_bytes? struct.zero, dump
+      object? struct.obj_id, dump
       player? struct.player_id, dump
     end
   end

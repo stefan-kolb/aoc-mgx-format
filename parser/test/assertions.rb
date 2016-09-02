@@ -14,6 +14,10 @@ module AoC
       assert((0..4).include?(data), "Resource type not in range (#{file})")
     end
 
+    def object?(data, file)
+      assert(data.positive?, "Object ID is not positive (#{file})")
+    end
+
     def unit_selection?(data, file)
       assert((1..40).include?(data), "Not a unit selection count (#{file})")
     end
