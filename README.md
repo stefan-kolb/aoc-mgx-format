@@ -23,12 +23,12 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 |  Tag  | Description                                  |   |   | Validated |
 |:-----:|----------------------------------------------|---|---|:---:|
 | 0x00  | [ATTACK](spec/body/actions/00-attack.md)       |   |   |   |
-| 0x0b  | [RESIGN](spec/body/actions/0b-resign.md)       |   |   |   |
+| 0x0b  | [RESIGN](spec/body/actions/0b-resign.md)       |   |   | + |
 | 0x01  | [STOP](spec/body/actions/01-stop.md)         |   |   |   |
 | 0x03  | [MOVE](spec/body/actions/03-move.md)         |   |   |   |
 | 0x6a  | [DELETE](spec/body/actions/6a-delete.md)       |   |   | + |
 | 0x6b  | ATTACKGROUND |   |   |   |
-| 0x6c  | [TRIBUTE](spec/body/actions/6c-tribute.md)      |   |   |   |
+| 0x6c  | [TRIBUTE](spec/body/actions/6c-tribute.md)      |   |   | + |
 | 0x6e  | ?            |   |   |   |
 | 0x6f  | UNLOAD       |   |   |   |
 | 0x7a  | SELL         |   |   |   |
