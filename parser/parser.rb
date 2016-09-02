@@ -59,18 +59,17 @@ class ActionCmd < Mgx::Record
                     # Commands::DELETE => :delete,
                     # Commands::FLARE => :flare,
                     # Commands::FORMATION => :formation,
-                    # Commands::GATHER => :gather,
+                    Commands::GATHER => Unknown.new(data_len: -> { len - 1 }),
                     # Commands::MOVE => :move,
                     # Commands::SELL => :sell,
                     # Commands::STOP => :stop,
-                    # Commands::TOWNBELL => :townbell,
+                    Commands::TOWNBELL => :townbell,
+                    Commands::BACKTOWORK => Unknown.new(data_len: -> { len - 1 }),
                     # Commands::TRIBUTE => :tribute,
                     # Commands::UNLOAD => :unload,
                     # Commands::WALL => :wall,
                     :default => Unknown.new(data_len: -> { len - 1 })
                   }
-  # skip :length => 4
-  # string :data, length: -> { len - 1 }
   # maybe end synch? always 150ms (action window?!) ahead of recent game time
   # So commands issued during turn 1000 would be scheduled for execution during
   # turn 1002. On turn 1001 commands that were issued on turn 0999 would be executed
@@ -78,18 +77,34 @@ class ActionCmd < Mgx::Record
   int32 :exec_at
 end
 
-class Command < Mgx::Record
-  int32 :tag
+class Remaining < Mgx::Record
+  # file end, same length 2 bytes + 2 zero + tag, tag? or just 2 ints for what?
+  # onlyif you win and others resign?!
+    count_bytes_remaining :rem
+    string :data, length: -> { rem }
+  end
 
-  choice :action, selection: :tag do
-    action_cmd 1
-    synch 2
-    message 4
+  class Command < Mgx::Record
+    int32 :tag
+
+    choice :action, selection: :tag do
+      action_cmd 1
+      synch 2
+      message 4
+      remaining :default
   end
 end
 
+
+
 class Rem < BinData::Record
   count_bytes_remaining :remi
+end
+
+def dump(file, data)
+  File.open(file, 'wb+') do |out|
+    out.write(data)
+  end
 end
 
 count = 1
@@ -108,10 +123,10 @@ duration = Hitimes::Interval.measure do
 
     File.open(file, 'rb') do |io|
       head_comp = Header.read(io)
-      uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
+      #uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
       #   # puts uncompressed_data
       #   # BinData::trace_reading do
-      header = RecordedGame.read(uncompressed_data)
+      #header = RecordedGame.read(uncompressed_data)
       #   # end
       #   # out = File.new("#{FIXTURES}/header/version/" << count.to_s << ".txt", "wb+")
       #   # File.write(out, header.game_version)
@@ -142,19 +157,31 @@ duration = Hitimes::Interval.measure do
         if ope.tag == 2
           gametime += ope.action.interval
           if ope.action.unknown.zero?
-            puts ope.action.synch_data.inspect
+            #puts ope.action.synch_data.inspect
             # gets
           end
         end
-        puts "Time #{gametime}"
+
+        # unless [1,2,4].include?(ope.action.selection)
+        #   puts ope.tag
+        #   dump("tag#{count}", ope.tag)
+        #   dump(count, ope.action.data)
+        # end
+
+        if ope.action.respond_to?(:tag) && ope.action.tag == Commands::GATHER
+          dump("#{FIXTURES}/gather/#{count}.dump", ope.action.action.data)
+        end
+        #puts "Time #{gametime}"
         # specify command types that should be logged
-        puts ope.inspect if [1, 4].include?(ope.tag)
+        puts ope.inspect if [].include?(ope.tag)
         # if ope.tag == 1
         #  puts "Cmd Synch #{ope.action.exec_at}"
         # end
         # end
       end
     end
+
+    count += 1
   end
 end
 

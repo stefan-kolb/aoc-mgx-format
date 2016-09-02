@@ -1,17 +1,15 @@
 # Buy
 
-Description
+Utilized when the player buys resources from the market.
 
 ## Definition
 
 ```ruby
 def Buy
-	int8 :command
-	int8 :player_id
-	int8 :resource_type
-	int8 :amount
-	int16 :object_id
-	int8 :zero
+  int8 :command
+  int8 :player_id
+  int8 :resource_type
+  int32 :amount
 end
 ```
 
@@ -25,14 +23,10 @@ The *player_id* may range from `0x01` - `0x08`.
 
 *:resource*  
 `00x0` = Food, `00x1` = Wood, `00x2` = Stone, `00x3` = Gold.
-Check resurce Types in scx format! TODO check if correct.
 
 *:amount*  
-Technically value of *:amount* * 100. practically only two values exist: 
+Technically value of *:amount* * 100. Practically only two values exist: 
 `00x1` = 100, `00x5` = 500 (Shift-Click).
-
-*:zero*  
-The four bytes following the *:amount* should always be unused `0x00`.
 
 ## Examples
 
@@ -40,14 +34,12 @@ Standard
 
 >`7B` &mdash; command  
 >`01` &mdash; player id  
->`02` &mdash; resource (wood?)  
->`01` &mdash; amount = 100    
->`00 00 00 00` &mdash; zero?  
+>`02` &mdash; stone  
+>`01 00 00 00` &mdash; amount = 100    
 
 Shift-Buy
 
 >`7B` &mdash; command  
 >`01` &mdash; player id  
->`02` &mdash; resource (wood?)  
->`05` &mdash; amount = 500    
->`00 00 00 00` &mdash; zero?
+>`02` &mdash; stone  
+>`05 00 00 00` &mdash; amount = 500    

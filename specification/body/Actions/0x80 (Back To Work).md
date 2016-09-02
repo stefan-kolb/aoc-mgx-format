@@ -1,6 +1,6 @@
 # Back To Work
 
-Description  
+Sends garrisoned villagers back to work.  
 
 ## Definition
 
@@ -8,7 +8,6 @@ Description
 def BackToWork
 	int8 :command 
 	int24 :zero
-	int32 :obj_id
 end
 ```
 

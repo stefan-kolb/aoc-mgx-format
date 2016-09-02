@@ -1,4 +1,4 @@
-require 'bindata'
+require_relative '../mgx_record'
 
 class Gather < Mgx::Record
   int8 :selected_count

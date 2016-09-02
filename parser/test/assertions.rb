@@ -3,15 +3,38 @@ require_relative '../lib/aoc-mgx/header/version'
 module AoC
   module Assertions
     def player_or_gaia?(data, file)
-      assert_match(/[0-8]/, data, "Third char of message not a player number or gaia (#{file})")
+      assert_match((0..8).include?(data), "Not a player number or gaia (#{file})")
     end
 
     def player?(data, file)
-      assert((1..8).member?(data), "PlayerInfo number not in range (#{file})")
+      assert((1..8).include?(data), "Player number not in range (#{file})")
     end
 
     def resource?(data, file)
-      assert((0..4).member?(data), "Resource type not in range (#{file})")
+      assert((0..4).include?(data), "Resource type not in range (#{file})")
+    end
+
+    def unit_selection?(data, file)
+      assert((1..40).include?(data), "Not a unit selection count (#{file})")
+    end
+
+    def unused_bytes?(data, file)
+      assert_equal(0, data, "Bytes not unused #{file}")
+    end
+
+    # 120x120 - Tiny (2 players)
+    # 144x144 - Small (3 players)
+    # 168x168 - Medium (4 players)
+    # 200x200 - Normal (6 players)
+    # 220x220 - Large (8 players)
+    # 240x240 - Giant
+    # 480x480 - LudiKRIS
+    def coordinate?(data, file)
+      assert((0..220).include?(data), "Not a x/y coordinate (#{file})")
+    end
+
+    def bool_value?(data, file)
+      assert([0,1].include?(data), "Not a boolean value (#{file})")
     end
 
     def version?(data, file)

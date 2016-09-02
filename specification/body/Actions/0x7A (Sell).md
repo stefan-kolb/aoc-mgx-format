@@ -1,7 +1,7 @@
 # Sell
 
-Description
-object id vll auch wenn beim traden was rein kommt?
+Utilized when the player sells resources from the market.
+Maybe also when a trade cart arrives at a market? -> object id
 
 ## Definition
 
@@ -26,10 +26,9 @@ The *player_id* may range from `0x01` - `0x08`.
 
 *:resource*  
 `00x0` = Food, `00x1` = Wood, `00x2` = Stone, `00x3` = Gold.
-Check resurce Types in scx format! TODO check if correct.
 
 *:amount*  
-Technically value of *:amount* * 100. practically only two values exist: 
+Technically value of *:amount* * 100. Practically only two values exist: 
 `0x01` = 100, `0x05` = 500 (Shift-Click).
 
 *:zero*  

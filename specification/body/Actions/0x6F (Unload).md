@@ -7,10 +7,14 @@ Description
 ```ruby
 class Unload
 	int8 :command
-	int8 :player_id_from
-	int8 :player_id_to
-	int8 :resource_type
-	float :amount
+	int8 :player_id
+	int16 :zero
+	float :x_coordinate
+	float :y_coordinate
+	int32 :zero2 # if 00 then const, if 03 then other
+	int32 :const
+	int32 :obj_id
+	
 end
 ```
 

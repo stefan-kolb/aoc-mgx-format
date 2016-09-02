@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/lib/aoc-mgx/body/stop'
+﻿require_relative '../../../parser/lib/aoc-mgx/actions/stop'
 
 require_relative '../test_helper'
 

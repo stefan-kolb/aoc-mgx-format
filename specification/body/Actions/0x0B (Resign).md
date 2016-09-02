@@ -2,6 +2,7 @@
 
 This structure will be present if a player resigns from the game.
 Resign can happen multiple times for same player.Then *:unknown* is 0x01. Dunno what that means at the moment.
+One player index should only resign once!
 
 ## Definition
 
@@ -17,7 +18,7 @@ end
 ## Description
 
 *:command*  
-The command identifier for the action attack will always be `0x0B`.
+The command identifier for the action will always be `0x0B`.
 
 *:player_id*  
 The *player_id* may range from `0x01` - `0x08`.

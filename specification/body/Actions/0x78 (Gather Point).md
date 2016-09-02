@@ -6,16 +6,16 @@ Sets gather points for units. Gather points can be set on coordinates or objects
 
 ```ruby
 def GatherPoint
-	int8 :command 
-	int8 :selected_count
-	int16 :zero
-	int32 :target_id
-	int32 :target_type
-	float :x_coordinate
-	float :y_coordinate
-	array :objects,
-		:type => :int32,
-		:length => :selected_count
+  int8 :command 
+  int8 :selected_count
+  int16 :zero
+  int32 :target_id
+  int32 :target_type
+  float :x_coordinate
+  float :y_coordinate
+  array :objects,
+    :type => :int32,
+    :length => :selected_count
 end
 ```
 

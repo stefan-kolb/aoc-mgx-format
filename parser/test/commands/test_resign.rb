@@ -1,4 +1,4 @@
-﻿require_relative '../../../parser/lib/aoc-mgx/body/resign'
+﻿require_relative '../../../parser/lib/aoc-mgx/actions/resign'
 
 require_relative '../test_helper'
 
