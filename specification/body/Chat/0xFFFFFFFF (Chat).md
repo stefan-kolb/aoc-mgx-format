@@ -19,12 +19,12 @@ end
 The command identifier will always be `0xFFFFFFFF`.
 
 *:chat_length*  
-The *chat_length* should be greater than `0x00`.
+The *chat_length* should be greater than `0x00` but `0x00` length chat might exist in pregame chat.
 
 *:message*  
 The format of the message is *@#* + *player_number* + chat *message*.
 The *player_number* may range from `0x00`(Gaia) to `0x08`.
-The message should always be a zero ended string (`0x00`).
+The message should always be a zero ended string (`0x00`). 
 
 ## Examples
 

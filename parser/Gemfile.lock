@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.3.0)
-    bindata (2.3.1)
+    bindata (2.3.2)
     hitimes (1.2.4-x86-mingw32)
     minitest (5.9.0)
     parser (2.3.1.2)

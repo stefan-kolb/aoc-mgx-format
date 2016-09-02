@@ -34,15 +34,22 @@ class RecordedGame < Mgx::Record
   #   # player info
   #   # player_info = PlayerInfo.new(num_players: :player_count)
   #   # array :player_info, :type => player_info, :read_until => lambda { index + 1 == player_count }
-  #   array :unused, type: :int64, read_until: -> { element == '0x3FF999999999999A'.to_i(16) }
-  #   skip length: 1
-  #   int32 :num_trigger
-  #   array :trigger_info, type: :trigger, read_until: -> { index + 1 == num_trigger }
-  #   skip length: -> { num_trigger * 4 }
-  #
-  #   array :team_indexes, type: :int8, read_until: -> { index + 1 == 8 }
-  #   skip length: 1 # , :onlyif => lambda { patch_version < 12.3 } # TODO really?
-  #   skip length: 18
-  #   int32 :num_chat
-  #   array :pregame_chat, type: :chat, read_until: -> { index + 1 == num_chat }
+  skip do
+    string :read_length => 8, :assert => ['9A9999999999F93F'].pack('H*')
+  end
+  # skip const
+  skip length: 8
+  skip length: 1
+  int32 :num_trigger
+  array :trigger_info, type: :trigger, read_until: -> { index + 1 == num_trigger }, onlyif: -> { !num_trigger.zero? }
+  skip length: -> { num_trigger * 4 }
+
+  array :team_indexes, type: :int8, read_until: -> { index + 1 == 8 }
+  # # skip length: 1 # , :onlyif => lambda { patch_version < 12.3 } # TODO really?
+  skip length: 13
+  int32 :pop_limit
+  int8 :game_type
+  int8 :lock_diplomacy
+  int32 :num_chat
+  array :pregame_chat, type: :chat, read_until: -> { index + 1 == num_chat }
 end
