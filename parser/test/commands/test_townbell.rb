@@ -4,7 +4,7 @@ require_relative '../test_helper'
 
 class TestTownbell < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/townbell/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/7f/*.dump'))
   end
 
   def test_structure
@@ -12,9 +12,7 @@ class TestTownbell < MiniTest::Test
       io = File.open(dump)
       struct = Townbell.read(io)
 
-      # unused[3]
       unused_bytes? struct.zero, dump
-      # active
       bool_value? struct.active, dump
     end
   end
