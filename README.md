@@ -32,8 +32,8 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x6c  | [TRIBUTE](spec/body/actions/6c-tribute.md)   |   |   | + |
 | 0x6e  | ?            |   |   |   |
 | 0x6f  | UNLOAD       |   |   |   |
-| 0x7a  | SELL         |   |   |   |
-| 0x7b  | BUY          |   |   |   |
+| 0x7a  | [SELL](spec/body/actions/7a-sell.md)         |   |   |   |
+| 0x7b  | [BUY](spec/body/actions/7b-buy.md)           |   |   |   |
 | 0x7f  | [TOWNBELL](spec/body/actions/7f-townbell.md) |   |   |   |
 | 0x10  | WAYPOINT     |   |   |   |
 | 0x12  | AGGRO        |   |   |   |

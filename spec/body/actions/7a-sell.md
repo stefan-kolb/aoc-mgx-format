@@ -1,18 +1,16 @@
 # Sell
 
 Utilized when the player sells resources from the market.
-Maybe also when a trade cart arrives at a market? -> object id
 
 ## Definition
 
 ```ruby
 def Sell
-	int8 :command
-	int8 :player_id
-	int8 :resource_type
-	int8 :amount
-	int16 :object_id
-	int8 :zero
+  int8 :command
+  int8 :player_id
+  int8 :resource_type
+  int8 :amount
+  int32 :object_id
 end
 ```
 
@@ -31,8 +29,8 @@ The *player_id* may range from `0x01` - `0x08`.
 Technically value of *:amount* * 100. Practically only two values exist: 
 `0x01` = 100, `0x05` = 500 (Shift-Click).
 
-*:zero*  
-The four bytes following the *:amount* should always be unused `0x00`.
+*:object_id*  
+The id of the market.
 
 ## Examples
 
@@ -40,14 +38,15 @@ Standard
 
 >`7A` &mdash; command  
 >`01` &mdash; player id  
->`02` &mdash; resource (wood?)  
+>`02` &mdash; stone
 >`01` &mdash; amount = 100    
->`00 00 00 00` &mdash; zero?  
+>`24 00 00 00` &mdash; object id  
 
 Shift-Sell
 
 >`7A` &mdash; command  
 >`01` &mdash; player id  
->`02` &mdash; resource (wood?)  
+>`01` &mdash; wood
 >`05` &mdash; amount = 500    
->`00 00 00 00` &mdash; zero? 
+>`00 00 00 00` &mdash; object id
+ 

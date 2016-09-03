@@ -4,7 +4,7 @@ require_relative '../test_helper'
 
 class TestBuy < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/buy/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/7b/*.dump'))
   end
 
   def test_structure
@@ -15,7 +15,7 @@ class TestBuy < MiniTest::Test
       player? struct.player_id, dump
       resource? struct.resource_type, dump
       assert([1, 5].member?(struct.amount), "Amount type not in range #{dump})")
-      assert(struct.zero?, 'Last bytes not unused')
+      object? struct.obj_id, dump
     end
   end
 end

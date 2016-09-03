@@ -9,7 +9,8 @@ def Buy
   int8 :command
   int8 :player_id
   int8 :resource_type
-  int32 :amount
+  int8 :amount
+  int32 :object_id
 end
 ```
 
@@ -28,6 +29,9 @@ The *player_id* may range from `0x01` - `0x08`.
 Technically value of *:amount* * 100. Practically only two values exist: 
 `00x1` = 100, `00x5` = 500 (Shift-Click).
 
+*:object_id*  
+The id of the market.
+
 ## Examples
 
 Standard
@@ -35,11 +39,13 @@ Standard
 >`7B` &mdash; command  
 >`01` &mdash; player id  
 >`02` &mdash; stone  
->`01 00 00 00` &mdash; amount = 100    
+>`01 00 00 00` &mdash; amount = 100   
+>`24 00 00 00` &mdash; object id  
 
 Shift-Buy
 
 >`7B` &mdash; command  
 >`01` &mdash; player id  
 >`02` &mdash; stone  
->`05 00 00 00` &mdash; amount = 500    
+>`05 00 00 00` &mdash; amount = 500  
+>`24 00 00 00` &mdash; object id  
