@@ -9,6 +9,7 @@ GEM
       ast (~> 2.2)
     powerpack (0.1.1)
     rainbow (2.1.0)
+    rake (11.2.2)
     require_all (1.3.3)
     rubocop (0.42.0)
       parser (>= 2.3.1.1, < 3.0)
@@ -26,6 +27,7 @@ DEPENDENCIES
   bindata
   hitimes
   minitest
+  rake
   require_all
   rubocop
 
