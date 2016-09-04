@@ -4,6 +4,7 @@ ruby '2.3.1'
 
 gem 'bindata'
 gem 'hitimes'
+gem 'rake'
 gem 'require_all'
 
 group :development do
