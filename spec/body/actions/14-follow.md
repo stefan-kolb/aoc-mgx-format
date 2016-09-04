@@ -5,14 +5,12 @@ Follow a particular unit.
 ## Definition
 
 ```ruby
-def Guard
-	int8 :command 
-	int8 :selected_units_count
-	int16 :zero
-	int32 :selected_unit
-	array :unit_ids,
-		:type => int32
-		:length => :selected_units_count
+def Follow
+  int8 :command 
+  int8 :selected_units_count
+  int16 :zero
+  int32 :followed_unit
+  array :units, type: :int32, initial_length: :selected_units_count
 end
 ```
 
@@ -22,10 +20,12 @@ end
 The command identifier for the action attack will always be `0x14`.
 
 *:zero*
+Unused data.
 
 *:selected_units_count*  
+Number of selected units.
 
-*:selected_unit*  
+*:followed_unit*  
 The unit_id that will be guarded.  
 
 *:unit_ids*  

@@ -4,7 +4,7 @@ require_relative '../test_helper'
 
 class TestFollow < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/formation/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/17/*.dump'))
   end
 
   def test_structure
@@ -16,8 +16,8 @@ class TestFollow < MiniTest::Test
       player? struct.player_id, dump
       unused_bytes? struct.zero, dump
       formation? struct.formation, dump
-      #object? struct.followed_unit, dump
-      # TODO units
+      assert_equal(struct.selected_units_count, struct.unit_ids.length)
+      struct.unit_ids { |id| object? id, dump }
     end
   end
 end

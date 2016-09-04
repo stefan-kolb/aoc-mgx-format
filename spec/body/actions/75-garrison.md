@@ -1,48 +1,39 @@
-Aktion: Einquartieren
-----------------------------------------------
+# Garrison
 
-75          -> cmd typ
-03 00 00    -> Anzahl units
-04 00 00 00 -> gebäude id
-05 00 00 00 -> ??? wegen ausquartieren später speicher???
-00 00 80 BF -> x-geb?
-00 00 80 BF -> y-geb?
-FF FF FF FF -> const
-03 00 00 00 -> unit ids
-02 00 00 00 -> ""
-01 00 00 00 -> ""
-----------------------------------------------
-kein selbe gruppe?
+Units can be garrisoned into buildings. Also packing and unpacking of trebuchets is handled as garrison.
 
-05 00 00 00 
-00 00 80 BF 
-00 00 80 BF
+## Definition
 
-05 00 00 00 
-00 00 80 BF 
-00 00 80 BF
- 
-05 00 00 00 
-00 00 80 BF 
-00 00 80 BF 
+```ruby
+def Garrison
+  int8 :command 
+end
+```
 
+## Description
 
-Tribock packen = einquartieren???!!!
-75 
-01 00 00 
-FF FF FF FF 
-01 00 00 00 
-00 00 00 00 
-00 00 00 00 
-FF FF FF FF 
-03 00 00 00
+*:command*  
+The command identifier for the action will always be `0x75`.
 
-entpacken
-75 
-01 00 00 
-FF FF FF FF 
-02 00 00 00 
-00 00 80 BF 
-00 00 80 BF 
-FF FF FF FF 
-03 00 00 00
+*:selected_units_count*  
+The number of selected units including the guarded unit.
+
+*:zero*  
+These two bytes are unused.
+
+*:object_id*  
+The id of the object the units will be garrisoned to or `0xFFFFFFFF` if it is a unit itself. 
+
+*:const*  
+Divider constant.
+
+*:unit_ids*  
+The ids of the selected units.
+
+## Examples
+
+>`13` &mdash; command   
+>`02` &mdash; selected_units_count  
+>`00 00` &mdash; zero  
+>`06 00 00 00` &mdash; object_id  
+>`08 00 00 00` &mdash; unit_ids

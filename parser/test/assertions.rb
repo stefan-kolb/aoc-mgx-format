@@ -27,8 +27,12 @@ module AoC
       assert_equal(0, data, "Bytes not unused #{file}")
     end
 
+    def unused_flag?(data, file)
+      assert_equal(-1, data, "Not a divider constant #{file}")
+    end
+
     def formation?(data, file)
-      formations = Formations.constants { |c| Constants.const_get(c) }
+      formations = Formations.constants.collect { |c| Formations.const_get(c) }
       assert(formations.include?(data), "Not a formation (#{file})")
     end
 

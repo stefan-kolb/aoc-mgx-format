@@ -1,20 +1,19 @@
 # Unload
 
-Description
+Unloads garrisoned (`0x75`) units.
 
 ## Definition
 
 ```ruby
 class Unload
-	int8 :command
-	int8 :player_id
-	int16 :zero
-	float :x_coordinate
-	float :y_coordinate
-	int32 :zero2 # if 00 then const, if 03 then other
-	int32 :const
-	int32 :obj_id
-	
+  int8 :command
+  int8 :selected_units_count
+  int16 :zero
+  float :u1
+  float :u2
+  int32 :zero2 # if 00 then const, if 03 then other
+  int32 :const
+  int32 :obj_id	
 end
 ```
 
@@ -23,7 +22,7 @@ end
 *:command*  
 The command identifier for the action will always be `0x6F`.
 
-*:player_id*  
+*:selected_units_count*  
 The *player_id* may range from `0x01` - `0x08`.
 
 ## Examples

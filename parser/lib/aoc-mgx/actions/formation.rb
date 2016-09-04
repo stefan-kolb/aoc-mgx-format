@@ -1,7 +1,6 @@
 require_relative '../mgx_record'
 
 class Formation < Mgx::Record
-  int8 :command
   int8 :selected_units_count
   int8 :player_id
   int8 :zero

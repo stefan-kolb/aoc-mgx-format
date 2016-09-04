@@ -6,14 +6,12 @@ A player is able to select the military formation of a group of units.
 
 ```ruby
 def Formation
-	int8 :command 
-	int8 :selected_units_count
-	int8 :player_id
-	int8 :zero
-	int32 :formation
-	array :unit_ids,
-		:type => int32,
-		:length => :selected_units_count
+  int8 :command 
+  int8 :selected_units_count
+  int8 :player_id
+  int8 :zero
+  int32 :formation
+  array :unit_ids, type: :int32, initial_length: :selected_units_count
 end
 ```
 
@@ -32,7 +30,7 @@ The player ID.
 Unused data.
 
 *:formation*  
-The [military formation](../../constants/Military%20Formations.md) of the selected units. 
+The [military formation](../../constants/formations.md) of the selected units. 
 
 *:unit_ids*  
 The ids of the selected units.
