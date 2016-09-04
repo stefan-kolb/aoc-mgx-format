@@ -1,5 +1,4 @@
 language: ruby
 rvm:
   - "2.3.1"
-before_script: cd parser/
-install: bundle install
+before_install: cd parser/
