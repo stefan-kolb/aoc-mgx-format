@@ -6,11 +6,9 @@ This structure is responsible for stopping actions of the game. Besides stopping
 
 ```ruby
 class Stop
-	int8 :command 
-	int8 :selected_count
-	array :obj_id,
-		:type => :int32
-		:length => :selected_count
+  int8 :command 
+  int8 :selection_count
+  array :obj_ids, type: :int32, initial_length: :selection_count
 end
 ```
 
@@ -19,11 +17,11 @@ end
 *:command*  
 The command identifier for the action attack will always be `0x01`.
 
-*:selected_count*  
+*:selection_count*  
 The number of selected objects. If the action stops researches this will only be a single object. 
 
 *obj_ids*  
-The ids of the selected objects. This can be unit ids or the id of a building.
+The ids of the selected objects. This can be a unit ids, technology id or the id of a building.
 
 ## Examples
 
@@ -39,4 +37,4 @@ Stop a technology research from the building queue.
 
 >`01` &mdash; command  
 >`01` &mdash; selected_count  
->`73 06 00 00` &mdash; obj_id   
+>`73 06 00 00` &mdash; tech_id   
