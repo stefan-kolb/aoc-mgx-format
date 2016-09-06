@@ -6,12 +6,10 @@ This structure will mark all changes in the stance of military units.
 
 ```ruby
 class Stance
-	int8 :command 
-	int8 :selected_units_count
-	int8 :stance
-	array :units, 
-		:type => int32, 
-		:length => :selected_units_count
+  int8 :command 
+  int8 :selected_units_count
+  int8 :stance
+  array :unit_ids, type: :int32, initial_length: :selected_units_count
 end
 ```
 
@@ -24,7 +22,7 @@ The command identifier for the action will always be `0x12`.
 The number of selected units.
 
 *:stance*  
-The military [stance](../../constants/Stance.md) of the selected units. 
+The military [stance](../../constants/stances.md) of the selected units. 
 
 *:unit_ids*  
 The ids of the selected units.

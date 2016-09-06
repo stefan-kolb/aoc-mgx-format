@@ -1,4 +1,4 @@
-module Stance
+module Stances
   AGGRESSIVE = 0x00
   DEFENSIVE = 0x01
   STANDGROUND = 0x02

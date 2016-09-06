@@ -36,7 +36,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x7b  | [BUY](spec/body/actions/7b-buy.md)           |   |   | + |
 | 0x7f  | [TOWNBELL](spec/body/actions/7f-townbell.md) |   |   | + |
 | 0x10  | WAYPOINT     |   |   |   |
-| 0x12  | STANCE        |   |   |   |
+| 0x12  | [STANCE](spec/body/actions/12-stance.md)        |   |   | + |
 | 0x13  | [GUARD](spec/body/actions/13-guard.md)        |   |   | + |
 | 0x14  | [FOLLOW](spec/body/actions/14-follow.md)       |   |   | + |
 | 0x15  | PATROL       |   |   |   |

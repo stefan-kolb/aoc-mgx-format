@@ -1,16 +1,16 @@
-﻿require_relative '../../../parser/lib/aoc-mgx/actions/unload'
+﻿require_relative '../../../parser/lib/aoc-mgx/actions/garrison'
 
 require_relative '../test_helper'
 
-class TestBuy < MiniTest::Test
+class TestGarrison < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/6f/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/75/*.dump'))
   end
 
   def test_structure
     @files.each do |dump|
       io = File.open(dump)
-      struct = Unload.read(io)
+      struct = Garrison.read(io)
 
       unit_selection? struct.selected_units_count, dump
       unused_bytes? struct.zero, dump

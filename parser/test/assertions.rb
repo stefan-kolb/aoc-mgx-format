@@ -1,5 +1,6 @@
 require_relative '../lib/aoc-mgx/header/version'
 require_relative '../lib/aoc-mgx/constants/formations'
+require_relative '../lib/aoc-mgx/constants/stances'
 
 module AoC
   module Assertions
@@ -20,7 +21,7 @@ module AoC
     end
 
     def unit_selection?(data, file)
-      assert((1..40).include?(data), "Not a unit selection count (#{file})")
+      assert((-1..40).include?(data), "Not a unit selection count (#{file})")
     end
 
     def unused_bytes?(data, file)
@@ -34,6 +35,11 @@ module AoC
     def formation?(data, file)
       formations = Formations.constants.collect { |c| Formations.const_get(c) }
       assert(formations.include?(data), "Not a formation (#{file})")
+    end
+
+    def stance?(data, file)
+      stances = Stances.constants.collect { |c| Stances.const_get(c) }
+      assert(stances.include?(data), "Not a stance (#{file})")
     end
 
     # 120x120 - Tiny (2 players)

@@ -1,21 +1,19 @@
-﻿require_relative '../../../parser/lib/aoc-mgx/actions/formation'
+﻿require_relative '../../../parser/lib/aoc-mgx/actions/stance'
 
 require_relative '../test_helper'
 
-class TestFormation < MiniTest::Test
+class TestStance < MiniTest::Test
   def setup
-    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/17/*.dump'))
+    @files = Dir.glob(File.join(__dir__, '..', 'fixtures/12/*.dump'))
   end
 
   def test_structure
     @files.each do |dump|
       io = File.open(dump)
-      struct = Formation.read(io)
+      struct = Stance.read(io)
 
       unit_selection? struct.selected_units_count, dump
-      player? struct.player_id, dump
-      unused_bytes? struct.zero, dump
-      formation? struct.formation, dump
+      stance? struct.stance, dump
       assert_equal(struct.selected_units_count, struct.unit_ids.length)
       struct.unit_ids { |id| object? id, dump }
     end
