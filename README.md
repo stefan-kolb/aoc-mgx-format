@@ -1,7 +1,6 @@
 # Age of Empires 2: The Conquerors &mdash; Savegame File Format Specification
 
 [![Build Status](https://travis-ci.org/stefan-kolb/aoc-mgx-format.png)](https://travis-ci.org/stefan-kolb/aoc-mgx-format)
-[![Donation](https://img.shields.io/badge/donate-paypal-orange.svg)](https://www.paypal.com/cgi-bin/webscr?item_name=AoC Savegames&cmd=_donations&lc=US&currency_code=EUR&business=stefan-kolb%40web.de)
 
 ## Table of Contents
 
