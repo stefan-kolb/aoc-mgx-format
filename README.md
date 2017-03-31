@@ -1,7 +1,5 @@
 # Age of Empires 2: The Conquerors &mdash; Savegame File Format Specification
 
-[![Build Status](https://travis-ci.org/stefan-kolb/aoc-mgx-format.png)](https://travis-ci.org/stefan-kolb/aoc-mgx-format)
-
 ## Table of Contents
 
 * [Structure Definitions](#structure-definitions)
