@@ -44,7 +44,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x66  | BUILD        |   |   |   |
 | 0x67  | ?            |   |   |   |
 | 0x69  | WALL         |   |   |   |
-| 0x72  | ?            |   |   |   |
+| 0x72  | GATE         |   |   |   |
 | 0x73  | FLARE        |   |   |   |
 | 0x75  | GARRISON     |   |   |   |
 | 0x77  | TRAIN        |   |   |   |
