@@ -21,18 +21,9 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 |  Tag  | Description                                  |   |   | Validated |
 |:-----:|----------------------------------------------|---|---|:---:|
 | 0x00  | [ATTACK](spec/body/actions/00-attack.md)     |   |   |   |
-| 0x0b  | [RESIGN](spec/body/actions/0b-resign.md)     |   |   | + |
 | 0x01  | [STOP](spec/body/actions/01-stop.md)         |   |   | + |
 | 0x03  | [MOVE](spec/body/actions/03-move.md)         |   |   |   |
-| 0x6a  | [DELETE](spec/body/actions/6a-delete.md)     |   |   | + |
-| 0x6b  | ATTACKGROUND |   |   |   |
-| 0x6c  | [TRIBUTE](spec/body/actions/6c-tribute.md)   |   |   | + |
-| 0x6e  | ?            |   |   |   |
-| 0x6f  | UNLOAD       |   |   |   |
-| 0x7a  | [SELL](spec/body/actions/7a-sell.md)         |   |   | + |
-| 0x7b  | [BUY](spec/body/actions/7b-buy.md)           |   |   | + |
-| 0x7e  | RELIC        |   |   |   |
-| 0x7f  | [TOWNBELL](spec/body/actions/7f-townbell.md) |   |   | + |
+| 0x0b  | [RESIGN](spec/body/actions/0b-resign.md)     |   |   | + |
 | 0x10  | WAYPOINT     |   |   |   |
 | 0x12  | [STANCE](spec/body/actions/12-stance.md)        |   |   | + |
 | 0x13  | [GUARD](spec/body/actions/13-guard.md)        |   |   | + |
@@ -46,11 +37,20 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x66  | BUILD        |   |   |   |
 | 0x67  | ?            |   |   |   |
 | 0x69  | WALL         |   |   |   |
+| 0x6a  | [DELETE](spec/body/actions/6a-delete.md)     |   |   | + |
+| 0x6b  | ATTACKGROUND |   |   |   |
+| 0x6c  | [TRIBUTE](spec/body/actions/6c-tribute.md)   |   |   | + |
+| 0x6e  | ?            |   |   |   |
+| 0x6f  | UNLOAD       |   |   |   |
 | 0x72  | GATE         |   |   |   |
 | 0x73  | FLARE        |   |   |   |
 | 0x75  | GARRISON     |   |   |   |
 | 0x77  | TRAIN        |   |   |   |
 | 0x78  | GATHER       |   |   |   |
+| 0x7a  | [SELL](spec/body/actions/7a-sell.md)         |   |   | + |
+| 0x7b  | [BUY](spec/body/actions/7b-buy.md)           |   |   | + |
+| 0x7e  | RELIC        |   |   |   |
+| 0x7f  | [TOWNBELL](spec/body/actions/7f-townbell.md) |   |   | + |
 | 0x80  | BACKTOWORK   |   |   |   |
 | 0xFF  | GAMESTATS    | UP only  |   |   |
 |   |   |   |   |   |
