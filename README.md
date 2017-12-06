@@ -31,6 +31,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x6f  | UNLOAD       |   |   |   |
 | 0x7a  | [SELL](spec/body/actions/7a-sell.md)         |   |   | + |
 | 0x7b  | [BUY](spec/body/actions/7b-buy.md)           |   |   | + |
+| 0x7e  | RELIC        |   |   |   |
 | 0x7f  | [TOWNBELL](spec/body/actions/7f-townbell.md) |   |   | + |
 | 0x10  | WAYPOINT     |   |   |   |
 | 0x12  | [STANCE](spec/body/actions/12-stance.md)        |   |   | + |
@@ -39,6 +40,7 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 | 0x15  | PATROL       |   |   |   |
 | 0x17  | [FORMATION](spec/body/actions/17-formation.md)    |   |   | + |
 | 0x18  | SAVE         |   |   |   |
+| 0x1b  | SAVE & EXIT  |   |   |   |
 | 0x64  | AI_TRAIN     |   |   |   |
 | 0x65  | TECH         |   |   |   |
 | 0x66  | BUILD        |   |   |   |
