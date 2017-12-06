@@ -35,7 +35,7 @@ class RecordedGame < Mgx::Record
   #   # player_info = PlayerInfo.new(num_players: :player_count)
   #   # array :player_info, :type => player_info, :read_until => lambda { index + 1 == player_count }
   skip do
-    string :read_length => 8, :assert => ['9A9999999999F93F'].pack('H*')
+    string read_length: 8, assert: ['9A9999999999F93F'].pack('H*')
   end
   # skip const
   skip length: 8

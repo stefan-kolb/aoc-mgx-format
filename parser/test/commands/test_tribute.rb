@@ -15,7 +15,7 @@ class TestTribute < MiniTest::Test
       player? struct.player_id_from, dump
       player? struct.player_id_to, dump
       refute_equal(struct.player_id_to, struct.player_id_from, 'Tributes must be sent from and to different players')
-      assert((0..3).include?(struct.resource_type), 'Resource range must be excluding gold')
+      assert((0..3).cover?(struct.resource_type), 'Resource range must be excluding gold')
       assert(struct.amount.positive?, 'Amount not positive')
       assert(struct.fee.between?(0.0, 1.0), 'Market fee not in range')
     end

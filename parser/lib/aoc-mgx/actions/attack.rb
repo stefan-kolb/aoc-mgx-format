@@ -10,7 +10,7 @@ class Attack < Mgx::Record
   float :x_coordinate
   float :y_coordinate
   array :attacker_ids,
-        :type => :int32,
-        :initial_length => :selected_units_count,
-        :onlyif => -> { selected_units_count < 0xFF }
+        type: :int32,
+        initial_length: :selected_units_count,
+        onlyif: -> { selected_units_count < 0xFF }
 end

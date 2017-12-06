@@ -53,22 +53,22 @@ class ActionCmd < Mgx::Record
 
   choice :action, selection: :tag,
                   choices: {
-                    #Commands::RESIGN => :resign,
+                    # Commands::RESIGN => :resign,
                     # Commands::ATTACKGROUND => :attack_ground,
                     # Commands::BUY => :buy,
                     # Commands::DELETE => :delete,
                     # Commands::FLARE => :flare,
                     # Commands::FORMATION => :formation,
-                    #Commands::GATHER => Unknown.new(data_len: -> { len - 1 }),
+                    # Commands::GATHER => Unknown.new(data_len: -> { len - 1 }),
                     # Commands::MOVE => :move,
                     # Commands::SELL => :sell,
                     # Commands::STOP => :stop,
-                    #Commands::TOWNBELL => :townbell,
-                    #Commands::BACKTOWORK => Unknown.new(data_len: -> { len - 1 }),
+                    # Commands::TOWNBELL => :townbell,
+                    # Commands::BACKTOWORK => Unknown.new(data_len: -> { len - 1 }),
                     # Commands::TRIBUTE => :tribute,
                     # Commands::UNLOAD => :unload,
                     # Commands::WALL => :wall,
-                    :default => Unknown.new(data_len: -> { len - 1 })
+                    default: Unknown.new(data_len: -> { len - 1 })
                   }
   # maybe end synch? always 150ms (action window?!) ahead of recent game time
   # So commands issued during turn 1000 would be scheduled for execution during
@@ -80,22 +80,20 @@ end
 class Remaining < Mgx::Record
   # file end, same length 2 bytes + 2 zero + tag, tag? or just 2 ints for what?
   # onlyif you win and others resign?!
-    count_bytes_remaining :rem
-    string :data, length: -> { rem }
+  count_bytes_remaining :rem
+  string :data, length: -> { rem }
   end
 
-  class Command < Mgx::Record
-    int32 :tag
+class Command < Mgx::Record
+  int32 :tag
 
-    choice :action, selection: :tag do
-      action_cmd 1
-      synch 2
-      message 4
-      remaining :default
+  choice :action, selection: :tag do
+    action_cmd 1
+    synch 2
+    message 4
+    remaining :default
   end
 end
-
-
 
 class Rem < BinData::Record
   count_bytes_remaining :remi
@@ -115,8 +113,6 @@ end
 
 count = 1
 
-
-
 duration = Hitimes::Interval.measure do
   Dir.glob('recs/dm/*.*') do |file|
     gametime = 0 # TODO: does it really start at 0
@@ -124,13 +120,13 @@ duration = Hitimes::Interval.measure do
     File.open(file, 'rb') do |io|
       puts file
       head_comp = Header.read(io)
-      #uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
+      # uncompressed_data = Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(head_comp.data)
       # out = File.new("#{FIXTURES}/header/" << File.basename(file) << ".dump", "wb+")
       # File.write(out, uncompressed_data)
       # out.close
-      #puts uncompressed_data
+      # puts uncompressed_data
       # BinData::trace_reading do
-      #header = RecordedGame.read(uncompressed_data)
+      # header = RecordedGame.read(uncompressed_data)
       # end
 
       # count += 1
@@ -159,19 +155,19 @@ duration = Hitimes::Interval.measure do
         if ope.tag == 2
           gametime += ope.action.interval
           if ope.action.unknown.zero?
-            #puts ope.action.synch_data.inspect
+            # puts ope.action.synch_data.inspect
             # gets
           end
         end
 
-        unless [2,4].include?(ope.action.selection)
-          if ope.action.respond_to?(:tag) #&& ope.action.tag == Commands::GAMESPEED
+        unless [2, 4].include?(ope.action.selection)
+          if ope.action.respond_to?(:tag) # && ope.action.tag == Commands::GAMESPEED
             require 'securerandom'
             dump("test/fixtures/#{ope.action.tag.to_hex}/#{SecureRandom.uuid}.dump", ope.action.action.data)
           end
         end
 
-        #puts "Time #{gametime}"
+        # puts "Time #{gametime}"
         # specify command types that should be logged
         puts ope.inspect if [].include?(ope.tag)
         # if ope.tag == 1
@@ -181,7 +177,7 @@ duration = Hitimes::Interval.measure do
       end
     end
 
-    #count += 1
+    # count += 1
   end
 end
 

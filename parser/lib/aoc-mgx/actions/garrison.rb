@@ -6,7 +6,7 @@ class Garrison < Mgx::Record
   int32 :obj_id
   int8 :action # 1 pack , 2 = unpack, 4 = ?ally building?, 5 = garrison
   int24 :unknown1
-  #int16 :zero2 #player id? + 2 zero?
+  # int16 :zero2 #player id? + 2 zero?
   float :unknown2
   float :unknown3
   int32 :const

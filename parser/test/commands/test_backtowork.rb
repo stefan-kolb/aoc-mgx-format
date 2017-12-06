@@ -14,7 +14,7 @@ class TestTownbell < MiniTest::Test
 
       unused_bytes? struct.zero, dump
       # active
-      #bool_value? struct.active, dump
+      # bool_value? struct.active, dump
     end
   end
 end

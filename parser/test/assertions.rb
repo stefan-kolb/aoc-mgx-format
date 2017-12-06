@@ -5,15 +5,15 @@ require_relative '../lib/aoc-mgx/constants/stances'
 module AoC
   module Assertions
     def player_or_gaia?(data, file)
-      assert_match((0..8).include?(data), "Not a player number or gaia (#{file})")
+      assert_match((0..8).cover?(data), "Not a player number or gaia (#{file})")
     end
 
     def player?(data, file)
-      assert((1..8).include?(data), "Player number not in range (#{file})")
+      assert((1..8).cover?(data), "Player number not in range (#{file})")
     end
 
     def resource?(data, file)
-      assert((0..4).include?(data), "Resource type not in range (#{file})")
+      assert((0..4).cover?(data), "Resource type not in range (#{file})")
     end
 
     def object?(data, file)
@@ -21,7 +21,7 @@ module AoC
     end
 
     def unit_selection?(data, file)
-      assert((-1..40).include?(data), "Not a unit selection count (#{file})")
+      assert((-1..40).cover?(data), "Not a unit selection count (#{file})")
     end
 
     def unused_bytes?(data, file)
@@ -50,11 +50,11 @@ module AoC
     # 240x240 - Giant
     # 480x480 - LudiKRIS
     def coordinate?(data, file)
-      assert((0..220).include?(data), "Not a x/y coordinate (#{file})")
+      assert((0..220).cover?(data), "Not a x/y coordinate (#{file})")
     end
 
     def bool_value?(data, file)
-      assert([0,1].include?(data), "Not a boolean value (#{file})")
+      assert([0, 1].include?(data), "Not a boolean value (#{file})")
     end
 
     def version?(data, file)
