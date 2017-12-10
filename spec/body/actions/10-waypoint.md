@@ -17,7 +17,7 @@ def Waypoint
 end
 ```
 
-### Description
+## Description
 
 *:action_identifier*  
 Always has the value `0x10`.
@@ -37,7 +37,7 @@ The y-coordinate on the AoC grid.
 *:selected_ids*  
 The IDs of the selected units. Can also be the ID of a building.
 
-### Examples
+## Examples
 
 Set a waypoint.
 

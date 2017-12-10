@@ -5,32 +5,42 @@ This structure will mark all changes in the stance of military units.
 ## Definition
 
 ```ruby
-class Stance
-  int8 :command 
-  int8 :selected_units_count
+def Stance
+  int8 :action_identifier
+  int8 :selection_count
   int8 :stance
-  array :unit_ids, type: :int32, initial_length: :selected_units_count
+  array :selected_ids,
+    type => :int32,
+    initial_length => :selection_count
 end
 ```
 
 ## Description
 
-*:command*  
-The command identifier for the action will always be `0x12`.
+*:action_identifier*  
+Always has the value `0x12`.
 
-*:selected_units_count*  
+*:selection_count*  
 The number of selected units.
 
 *:stance*  
-The military [stance](../../constants/stances.md) of the selected units. 
+Represents which stance the units are going to take. AoC supports 4 stances.
 
-*:unit_ids*  
-The ids of the selected units.
+Hex Value | Stance
+----------|-------
+0x00      | Aggressive
+0x01      | Defensive
+0x02      | Stand Ground
+0x03      | Passive
+
+*:selected_ids*  
+The IDs of the selected units.
 
 ## Examples
 
->`12` &mdash; command  
->`02` &mdash; selected_units_count  
->`01` &mdash; defensive stance  
->`06 00 00 00` &mdash; unit_id  
->`08 00 00 00` &mdash; unit_id  
+`12 01 02 4b 15 00 00`
+
+>`12` &mdash; action_identifier  
+>`01` &mdash; selection_count  
+>`02` &mdash; stance  
+>`4b 15 00 00` &mdash; selected_id

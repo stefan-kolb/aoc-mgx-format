@@ -14,7 +14,7 @@ def Stop
 end
 ```
 
-### Description
+## Description
 
 *:action_identifier*  
 Always has the value `0x01`.
@@ -25,7 +25,7 @@ The number of selected units. Is always `0x01` when stopping research in buildin
 *selected_ids*  
 The IDs of the selected units. When stopping research, this is the ID of the building where the research is queued.
 
-### Examples
+## Examples
 
 Stop a bunch of (moving) units.
 

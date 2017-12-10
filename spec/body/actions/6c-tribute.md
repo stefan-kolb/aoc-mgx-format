@@ -1,43 +1,53 @@
 # Tribute
 
-This structure represents tributes between players. A separate tribute is saved for every resource even when a player selects tributes for more than one resource type at once. 
+This structure represents tributes between players. A separate tribute is saved for every resource even when a player selects tributes for more than one resource type at once.
 
 ## Definition
 
 ```ruby
 def Tribute
-  int8 :command
-  int8 :player_id_from
-  int8 :player_id_to
-  int8 :resource_type  
-  float :amount 
-  float :fee  
+  int8 :action_identifier
+  int8 :source_player_number
+  int8 :target_player_number
+  int8 :resource_type
+  float :amount
+  float :transaction_fee
 end
 ```
 
 ## Description
 
-*:command*  
-The command identifier for the action will always be `0x6C`.
+*:action_identifier*  
+Always has the value `0x6c`.
 
-*:player_id*  
-The *player_id* may range from `0x01` - `0x08`.
+*:source_player_number*  
+The number of the player who sends the resources.
 
-*:resource*  
-`00x0` = Food, `00x1` = Wood, `00x2` = Stone, `00x3` = Gold.
-TODO check if correct.
+*:target_player_number*  
+The number of the player who receives the resources.
 
-*:fee*  
-The market fee for the tributes in percentage between 0.0 and 1.0.
+*:resource_type*  
+The resource type that is send.
+
+Hex Value | Resource
+----------|---------
+0x00      | Food
+0x01      | Wood
+0x02      | Stone
 
 *:amount*  
-The total positive amount of resources sent.
+The amount of resources being transferred.
+
+*:transaction_fee*  
+The transaction fee.
 
 ## Examples
 
->`6C` &mdash; command  
->`01` &mdash; player_id_from  
->`02` &mdash; player_id_to  
->`02` &mdash; resource = stone  
->`00 00 C8 42` &mdash; amount = 100   
->`CD CC 4C 3E` &mdash; market_fee = 0.2    
+`6c 03 01 03 00 00 c8 42 cd cc 4c 3e`
+
+>`6c` &mdash; action_identifier  
+>`03` &mdash; source_player_number  
+>`01` &mdash; target_player_number  
+>`03` &mdash; resource_type  
+>`00 00 c8 42` &mdash; amount  
+>`cd cc 4c 3e` &mdash; transaction_fee = 0.2

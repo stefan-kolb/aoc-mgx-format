@@ -19,7 +19,7 @@ def Move
 end
 ```
 
-### Description
+## Description
 
 *:action_identifier*  
 Always has the value `0x03`.
@@ -45,7 +45,7 @@ The y-coordinate of the targeted position.
 *:selected_ids*  
 The IDs of the selected units.
 
-### Examples
+## Examples
 
 Movement command with *:selected_ids* present.
 

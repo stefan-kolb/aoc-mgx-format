@@ -14,7 +14,7 @@ def Resign
 end
 ```
 
-### Description
+## Description
 
 *:action_identifier*  
 Always has the value `0x0b`.
@@ -28,7 +28,7 @@ The ID of the player.
 *:disconnect*  
 Determines whether the player gave up himself (`0x00`) or was disconnected (`0x01`).
 
-### Examples
+## Examples
 
 `0b 02 03 00`
 

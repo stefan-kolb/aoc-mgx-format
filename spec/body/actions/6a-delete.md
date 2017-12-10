@@ -6,30 +6,34 @@ The action is used when deleting units and buildings.
 
 ```ruby
 def Delete
-  int8 :command 
+  int8 :action_identifier
   byte24 :zero
   int32 :object_id
-  int32 :player_id
+  int8 :player_number
+  byte24 :zero
 end
 ```
 
 ## Description
 
-*:command*  
-The command identifier for the action attack will always be `0x6A`.
+*:action_identifier*  
+Always has the value `0x6a`.
 
 *:zero*  
-The 3 bytes following the *:command* are unused.
+The 3 bytes following *:action_identifier* and *player_id* are unused.
 
 *:object_id*  
-The *object_id* of a unit or building.
+ID of the unit or building that will be deleted.
 
-*:player_id*  
-The *player_id* may range from `0x01` - `0x08`.
+*:player_number*  
+The number of the player who the unit belongs to (`0x01` - `0x08`).
 
 ## Examples
 
->`6A` &mdash; command  
+`6a 00 00 00 9f 06 00 00 02 00 00 00`
+
+>`6a` &mdash; action_identifier  
 >`00 00 00` &mdash; zero  
->`09 00 00 00` &mdash; object_id  
->`01 00 00 00` &mdash; player_id
+>`9f 06 00 00` &mdash; object_id  
+>`02` &mdash; player_number  
+>`00 00 00` &mdash; zero

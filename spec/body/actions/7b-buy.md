@@ -6,46 +6,43 @@ Utilized when the player buys resources from the market.
 
 ```ruby
 def Buy
-  int8 :command
-  int8 :player_id
+  int8 :action_identifier
+  int8 :player_number
   int8 :resource_type
   int8 :amount
-  int32 :object_id
+  int32 :market_id
 end
 ```
 
 ## Description
 
-*:command*  
-The command identifier for the action will always be `0x7B`.
+*:action_identifier*  
+Always has the value `0x7b`.
 
-*:player_id*  
-The *player_id* may range from `0x01` - `0x08`.
+*:player_number*  
+The ID of the player who buys the resources (`0x01` - `0x08`).
 
-*:resource*  
-`00x0` = Food, `00x1` = Wood, `00x2` = Stone, `00x3` = Gold.
+*:resource_type*  
+The resource type that is sold.
+
+Hex Value | Resource
+----------|---------
+0x00      | Food
+0x01      | Wood
+0x02      | Stone
 
 *:amount*  
-Technically value of *:amount* * 100. Practically only two values exist: 
-`00x1` = 100, `00x5` = 500 (Shift-Click).
+The amount being bought in hundreds. Can be either `0x01` or `0x05`.
 
-*:object_id*  
-The id of the market.
+*:market_id*  
+The ID of the market.
 
 ## Examples
 
-Standard
+`7b 01 01 05 46 1a 00 00`
 
->`7B` &mdash; command  
->`01` &mdash; player id  
->`02` &mdash; stone  
->`01 00 00 00` &mdash; amount = 100   
->`24 00 00 00` &mdash; object id  
-
-Shift-Buy
-
->`7B` &mdash; command  
->`01` &mdash; player id  
->`02` &mdash; stone  
->`05 00 00 00` &mdash; amount = 500  
->`24 00 00 00` &mdash; object id  
+>`7b` &mdash; action_identifier  
+>`01` &mdash; player_id  
+>`01` &mdash; resource_type  
+>`05` &mdash; amount    
+>`46 1a 00 00` &mdash; market_id
