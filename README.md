@@ -63,6 +63,6 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 
 2. What actions are __only saved for certain players__, i.e., the owner of the recorded game?
     - Viewpoints (for lock view) are only saved for the owner of the recorded game, together with the sychronization info.
-    
+
 - Object IDs are incremented. Every building, unit or resource gets an ID.
 - Packing/unpacking of trebuchets is saved as ungarrison and garrison.

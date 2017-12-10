@@ -7,37 +7,32 @@ Resign can happen multiple times for the same player. This only happens when *:d
 
 ```ruby
 def Resign
-  int8 :command 
-  int8 :player_id
+  int8 :action_identifier
   int8 :player_number
-  int8 :disconnect
+  int8 :player_id
+  int32 :disconnect
 end
 ```
 
-## Description
+### Description
 
-*:command*  
-The command identifier for the action will always be `0x0B`.
-
-*:player_id*  
-The *player_id* may range from `0x01` - `0x08`.
+*:action_identifier*  
+Always has the value `0x0b`.
 
 *:player_number*  
-The *player_number* may range from `0x00` - `0x08`.
-It may be different from *player_id* when someone is cooping another player. For example, one player is cooping in a 1v1. 
-There will be the *player_ids* `0x01` and `0x02`, still the *player_numbers* will reach from `0x01` - `0x03`.
-This value should be equivalent to the player color ids.
+The player's number which can be changed in the lobby. Is only different from *:player_id* if playing in coop mode.
 
-> Player 1 = { player_id: `0x01`, player_number: `0x01` }  
-> Player 2 = { player_id: `0x02`, player_number: `0x02` }  
-> Player 3 = { player_id: `0x02`, player_number: `0x03` }  
+*:player_id*  
+The ID of the player.
 
 *:disconnect*  
-This value is `0x01` if a player has been disconnected.
+Determines whether the player gave up himself (`0x00`) or was disconnected (`0x01`).
 
-## Examples
+### Examples
 
->`0B` &mdash; command  
->`01` &mdash; player id  
->`01` &mdash; player_number  
->`00` &mdash; disconnect  
+`0b 02 03 00`
+
+>`0b` &mdash; action_identifier  
+>`02` &mdash; player_number  
+>`03` &mdash; player_id  
+>`00` &mdash; disconnect
