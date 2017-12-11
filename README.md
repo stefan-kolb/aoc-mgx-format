@@ -14,7 +14,16 @@ More information on *BinData* can be found [here](https://github.com/dmendel/bin
 
 ## Synchronization
 
+|  Tag  | Description                                      |   |   | Validated |
+|:-----:|--------------------------------------------------|---|---|:---:|
+|   | [SYNCH](spec/body/synchronization/Synchronization.md) |   |   |  |
+
 ## Messaging
+
+|  Tag  | Description                                      |   |   | Validated |
+|:-----:|--------------------------------------------------|---|---|:---:|
+| 0x000001F4 | [GAMESTART](spec/body/chat/0x000001F4%20(GameStart).md) |   |   |  |
+| 0xFFFFFFFF  | [CHAT](spec/body/chat/0xFFFFFFFF%20(Chat).md)             |   |   | + |
 
 ## Gameplay Actions
 
