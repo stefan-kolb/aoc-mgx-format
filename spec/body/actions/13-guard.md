@@ -6,35 +6,41 @@ Military units can be advised to automatically guard other units.
 
 ```ruby
 def Guard
-  int8 :command 
-  int8 :selected_units_count
+  int8 :action_identifier
+  int8 :selection_count
   int16 :zero
-  int32 :guarded_unit
-  array :units, type: :int32, initial_length: :selected_units_count
+  int32 :guarded_id
+  array :selected_ids,
+    type => :int32,
+    initial_length => :selection_count
 end
 ```
 
 ## Description
 
-*:command*  
-The command identifier for the action will always be `0x13`.
+*:action_identifier*  
+Always has the value `0x13`.
 
-*:selected_units_count*  
-The number of selected units including the guarded unit.
+*:selection_count*  
+The number of selected units that are put on guard.
 
 *:zero*  
-These two bytes are unused.
+The two bytes after *:selection_count* are always zero.
 
-*:guarded_unit*  
-The id of the unit that will be guarded.  
+*:guarded_id*  
+The ID of the unit that will be guarded.
 
-*:unit_ids*  
-The ids of the selected units.
+*:selected_ids*  
+The IDs of the guarding units.
 
 ## Examples
 
->`13` &mdash; command   
->`02` &mdash; selected_units_count  
+`13 03 00 00 41 15 00 00 44 18 00 00 4b 15 00 00 42 18 00 00`
+
+>`13` &mdash; action_identifier   
+>`03` &mdash; selection_count  
 >`00 00` &mdash; zero  
->`06 00 00 00` &mdash; guarded_unit  
->`08 00 00 00` &mdash; unit_ids
+>`41 15 00 00` &mdash; guarded_id  
+>`44 18 00 00` &mdash; selected_id  
+>`4b 15 00 00` &mdash; selected_id  
+>`42 18 00 00` &mdash; selected_id

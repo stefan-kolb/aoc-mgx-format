@@ -1,37 +1,43 @@
 # Townbell
 
-The townbell can be used to automatically garrison villagers in range of towncenter (24 tiles starting from the borders of the building). 
+The townbell can be used to automatically garrison villagers in range of towncenter (23 tiles starting from the borders of the building).
 If it stops ringing, i.e., is clicked again, all villagers go back to work.
 
 ## Definition
 
 ```ruby
 def Townbell
-  int8 :command 
-  int24 :zero
-  int32 :obj_id
-  int32 :active
+  int8 :action_identifier
+  byte24 :zero
+  int32 :building_id
+  int8 :active
+  byte24 :zero2
 end
 ```
 
 ## Description
 
-*:command*  
-The command identifier for the action will always be `0x7F`.
+*:action_identifier*  
+Always has the value `0x7f`.
 
 *:zero*  
-The following three bytes are unused.
+The 3 bytes after *:action_identifier* are always zero.
 
-*:obj_id*  
-The id of the towncenter sending the command. Relevant because only villagers in range will react to the command.
+*:building_id*  
+The ID of the town center where the bell is rung.
 
 *:active*  
-If the bell is ringing the value is `0x01`. If it stopped ringing it is `0x00`.
+Represents whether the townbell is set to active (`0x01`) or not active (`0x00`).
+
+*:zero2*  
+The 3 bytes after *:active* are always zero.
 
 ## Examples
 
->`7F` &mdash; command  
->`00 00 00` &mdash; zero  
->`04 00 00 00` &mdash; towncenter id  
->`01 00 00 00` &mdash; active?
+`7f 00 00 00 68 17 00 00 01 00 00 00`
 
+>`7f` &mdash; action_identifier  
+>`00 00 00` &mdash; zero  
+>`68 17 00 00` &mdash; building_id  
+>`01` &mdash; active  
+>`00 00 00` &mdash; zero2

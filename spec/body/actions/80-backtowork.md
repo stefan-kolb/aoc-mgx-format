@@ -6,20 +6,27 @@ Sends garrisoned villagers back to work.
 
 ```ruby
 def BackToWork
-	int8 :command 
-	int24 :zero
+  int8 :action_identifier
+  byte24 :zero
+  int32 :building_id
 end
 ```
 
-## Description
+### Description
 
-*:command*  
-The command identifier for the action attack will always be `0x80`.
+*:action_identifier*  
+Always has the value `0x80`.
 
-## Examples
+*:zero*  
+The 3 bytes after *:action_identifier* are always zero.
 
-Standard
+*:building_id*  
+The ID of the building from which the villagers are released.
 
->`80` &mdash; command  
+### Examples
+
+`80 00 00 00 68 17 00 00`
+
+>`80` &mdash; action_identifier  
 >`00 00 00` &mdash; zero  
->`04 00 00 00` &mdash; obj_id
+>`68 17 00 00` &mdash; building_id
